@@ -1,65 +1,192 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { peptides } from '@/data/peptides'
+import { comparisons } from '@/data/comparisons'
+import { goals } from '@/data/goals'
+import { stacks } from '@/data/stacks'
+import { PeptideCard } from '@/components/PeptideCard'
+import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { OrganizationSchema } from '@/components/SchemaMarkup'
 
-export default function Home() {
+const weightLossComparisons = comparisons.filter((c) =>
+  ['semaglutide-vs-tirzepatide', 'semaglutide-vs-retatrutide', 'tirzepatide-vs-retatrutide', 'semaglutide-vs-liraglutide', 'ozempic-vs-wegovy', 'compounded-vs-brand-semaglutide'].includes(c.slug)
+)
+
+const weightLossGoals = goals.filter((g) =>
+  ['weight-loss', 'fat-loss', 'gut-health', 'muscle-growth'].includes(g.slug)
+)
+
+export default function HomePage() {
+  const glp1Peptides = peptides.filter((p) =>
+    ['semaglutide', 'tirzepatide', 'retatrutide', 'liraglutide', 'survodutide', 'orforglipron'].includes(p.slug)
+  )
+
+  const supportPeptides = peptides.filter((p) =>
+    ['bpc-157', 'tesamorelin', 'aod-9604', 'mots-c'].includes(p.slug)
+  )
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <OrganizationSchema />
+
+      {/* Hero — weight loss first */}
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              The peptide{' '}
+              <span className="text-cyan-400">weight loss</span>{' '}
+              guide
+            </h1>
+            <p className="mt-6 text-lg text-muted leading-relaxed">
+              Everything you need to know about GLP-1 peptides for weight loss. Compare semaglutide, tirzepatide,
+              and retatrutide side by side. Research-backed dosing, side effects, cost breakdowns, and tools.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/goals/weight-loss"
+                className="rounded-lg bg-cyan-500 px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-cyan-400"
+              >
+                Best peptides for weight loss
+              </Link>
+              <Link
+                href="/compare/semaglutide-vs-tirzepatide"
+                className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+              >
+                Semaglutide vs Tirzepatide
+              </Link>
+              <Link
+                href="/tools/dosage-calculator"
+                className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+              >
+                Dosage calculator
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GLP-1 Weight Loss Peptides — the sun */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="flex items-end justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-foreground">GLP-1 weight loss peptides</h2>
+            <p className="mt-2 text-sm text-muted">The most effective peptides for significant weight loss, ranked by clinical evidence.</p>
+          </div>
+          <Link href="/peptides" className="text-sm text-cyan-400 hover:text-cyan-300">
+            View all peptides →
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {glp1Peptides.map((peptide) => (
+            <PeptideCard key={peptide.slug} peptide={peptide} />
+          ))}
+        </div>
+      </section>
+
+      {/* Weight Loss Comparisons */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground">Which GLP-1 is right for you?</h2>
+          <p className="mt-2 text-sm text-muted">Side-by-side comparisons of the top weight loss peptides.</p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {weightLossComparisons.map((comp) => (
+              <Link
+                key={comp.slug}
+                href={`/compare/${comp.slug}`}
+                className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+              >
+                <h3 className="text-sm font-semibold text-foreground group-hover:text-cyan-400 transition-colors line-clamp-2">
+                  {comp.title}
+                </h3>
+                <p className="mt-2 text-xs text-muted line-clamp-2">{comp.metaDescription}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/compare" className="text-sm text-cyan-400 hover:text-cyan-300">
+              View all {comparisons.length} comparisons →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Supporting peptides — inner planets */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground">Peptides that support weight loss</h2>
+          <p className="mt-2 text-sm text-muted">
+            Manage GLP-1 side effects, preserve muscle, and optimize fat loss with these complementary compounds.
           </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {supportPeptides.map((peptide) => (
+              <PeptideCard key={peptide.slug} peptide={peptide} />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Weight loss goals */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground">Find peptides by goal</h2>
+          <p className="mt-2 text-sm text-muted">Weight loss is the starting point. What else do you need?</p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {weightLossGoals.map((goal) => (
+              <Link
+                key={goal.slug}
+                href={`/goals/${goal.slug}`}
+                className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+              >
+                <h3 className="font-semibold text-foreground group-hover:text-cyan-400 transition-colors">{goal.name}</h3>
+                <p className="mt-2 text-sm text-muted line-clamp-2">{goal.description}</p>
+                <p className="mt-3 text-xs text-cyan-400">{goal.topPeptides.length} peptides →</p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/goals" className="text-sm text-cyan-400 hover:text-cyan-300">
+              View all {goals.length} goals →
+            </Link>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Quick links — tools + stacks */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Link
+              href="/tools/dosage-calculator"
+              className="group rounded-xl border border-border bg-[var(--card)] p-8 transition-all hover:border-cyan-500/30"
+            >
+              <h3 className="text-xl font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+                Dosage Calculator
+              </h3>
+              <p className="mt-2 text-sm text-muted">
+                Calculate reconstitution volumes, syringe units, and doses per vial. Works for any peptide.
+              </p>
+            </Link>
+            <Link
+              href="/stacks"
+              className="group rounded-xl border border-border bg-[var(--card)] p-8 transition-all hover:border-cyan-500/30"
+            >
+              <h3 className="text-xl font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+                Peptide Stacks
+              </h3>
+              <p className="mt-2 text-sm text-muted">
+                {stacks.length} combination protocols with dosing, timing, cost estimates, and difficulty ratings.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter — resource framing, not personal */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
+          <NewsletterSignup />
+        </div>
+      </section>
+    </>
+  )
 }

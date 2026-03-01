@@ -1,0 +1,246 @@
+import type { Comparison } from '@/lib/types'
+
+export const comparisons: Comparison[] = [
+  {
+    slug: 'semaglutide-vs-tirzepatide',
+    peptideA: 'semaglutide',
+    peptideB: 'tirzepatide',
+    title: 'Semaglutide vs Tirzepatide: Which GLP-1 Is Better for Weight Loss?',
+    metaDescription: 'Compare semaglutide (Ozempic/Wegovy) vs tirzepatide (Mounjaro/Zepbound) for weight loss. Side-by-side analysis of effectiveness, side effects, cost, and availability.',
+    winner: 'tirzepatide',
+    dimensions: [
+      { name: 'Weight Loss Efficacy', peptideAScore: '15-17%', peptideBScore: '20-26%', notes: 'Tirzepatide shows superior weight loss in SURMOUNT vs STEP trials (26.6% vs 16.9% at highest doses).' },
+      { name: 'Mechanism', peptideAScore: 'GLP-1 only', peptideBScore: 'GLP-1 + GIP dual', notes: 'Tirzepatide activates both GLP-1 and GIP receptors, providing dual incretin action.' },
+      { name: 'FDA Status', peptideAScore: 'Approved (obesity)', peptideBScore: 'Approved (obesity)', notes: 'Both FDA-approved for chronic weight management. Semaglutide as Wegovy, tirzepatide as Zepbound.' },
+      { name: 'Nausea/GI Side Effects', peptideAScore: 'Moderate-High', peptideBScore: 'Moderate', notes: 'Both cause GI side effects. Some data suggests tirzepatide may be slightly better tolerated.' },
+      { name: 'Dosing Frequency', peptideAScore: 'Weekly', peptideBScore: 'Weekly', notes: 'Both administered as once-weekly subcutaneous injections.' },
+      { name: 'Monthly Cost', peptideAScore: '$1,000-1,350', peptideBScore: '$1,000-1,100', notes: 'Brand-name costs similar. Compounded versions vary widely ($150-500/month).' },
+      { name: 'Insurance Coverage', peptideAScore: 'Moderate', peptideBScore: 'Growing', notes: 'Semaglutide has longer track record with insurers. Tirzepatide coverage expanding rapidly.' },
+      { name: 'Muscle Preservation', peptideAScore: 'Poor', peptideBScore: 'Slightly Better', notes: 'Both cause lean mass loss. Tirzepatide may preserve slightly more muscle due to GIP action.' },
+    ],
+  },
+  {
+    slug: 'semaglutide-vs-retatrutide',
+    peptideA: 'semaglutide',
+    peptideB: 'retatrutide',
+    title: 'Semaglutide vs Retatrutide: Single vs Triple Agonist Compared',
+    metaDescription: 'Compare semaglutide (GLP-1) vs retatrutide (triple agonist GLP-1/GIP/glucagon). Effectiveness, research status, and what the Phase 2 data shows.',
+    dimensions: [
+      { name: 'Weight Loss Efficacy', peptideAScore: '15-17%', peptideBScore: '24-26%', notes: 'Retatrutide Phase 2 data showed up to 24.2% weight loss at 48 weeks. Still awaiting Phase 3 results.' },
+      { name: 'Mechanism', peptideAScore: 'GLP-1 only', peptideBScore: 'GLP-1 + GIP + Glucagon', notes: 'Retatrutide is a triple agonist — the glucagon receptor adds thermogenic fat burning.' },
+      { name: 'FDA Status', peptideAScore: 'Approved', peptideBScore: 'Phase 3 trials', notes: 'Semaglutide is FDA-approved. Retatrutide is still in clinical trials (Phase 3 ongoing).' },
+      { name: 'Side Effects', peptideAScore: 'Well-documented', peptideBScore: 'Limited data', notes: 'Semaglutide has years of post-market safety data. Retatrutide safety profile still being established.' },
+      { name: 'Availability', peptideAScore: 'Widely available', peptideBScore: 'Research only', notes: 'Semaglutide available by prescription. Retatrutide only through clinical trials or research suppliers.' },
+      { name: 'Cost', peptideAScore: '$150-1,350/mo', peptideBScore: '$200-400/mo (research)', notes: 'Semaglutide ranges from compounded to brand. Retatrutide only available from research peptide vendors.' },
+    ],
+  },
+  {
+    slug: 'tirzepatide-vs-retatrutide',
+    peptideA: 'tirzepatide',
+    peptideB: 'retatrutide',
+    title: 'Tirzepatide vs Retatrutide: Dual vs Triple Agonist for Weight Loss',
+    metaDescription: 'Compare tirzepatide (dual GLP-1/GIP) vs retatrutide (triple GLP-1/GIP/glucagon). Which next-gen peptide offers more weight loss potential?',
+    dimensions: [
+      { name: 'Weight Loss Efficacy', peptideAScore: '20-26%', peptideBScore: '24-26%', notes: 'Both show similar peak weight loss. Retatrutide Phase 2 data comparable to tirzepatide SURMOUNT results.' },
+      { name: 'Mechanism', peptideAScore: 'GLP-1 + GIP', peptideBScore: 'GLP-1 + GIP + Glucagon', notes: 'Retatrutide adds glucagon receptor activation for enhanced thermogenesis and lipid metabolism.' },
+      { name: 'FDA Status', peptideAScore: 'Approved', peptideBScore: 'Phase 3 trials', notes: 'Tirzepatide FDA-approved. Retatrutide expected to complete Phase 3 trials by 2026-2027.' },
+      { name: 'MASH/Liver Benefits', peptideAScore: 'Moderate', peptideBScore: 'Strong signal', notes: 'Retatrutide showed significant liver fat reduction in trials — glucagon receptor may drive hepatic benefits.' },
+      { name: 'Dosing', peptideAScore: 'Weekly', peptideBScore: 'Weekly', notes: 'Both once-weekly subcutaneous injections.' },
+      { name: 'Availability', peptideAScore: 'Prescription', peptideBScore: 'Research only', notes: 'Tirzepatide widely available. Retatrutide limited to trials and research suppliers.' },
+    ],
+  },
+  {
+    slug: 'semaglutide-vs-liraglutide',
+    peptideA: 'semaglutide',
+    peptideB: 'liraglutide',
+    title: 'Semaglutide vs Liraglutide: Weekly vs Daily GLP-1 for Weight Loss',
+    metaDescription: 'Compare semaglutide (Wegovy, weekly) vs liraglutide (Saxenda, daily) for weight loss. Efficacy, convenience, side effects, and cost breakdown.',
+    winner: 'semaglutide',
+    dimensions: [
+      { name: 'Weight Loss Efficacy', peptideAScore: '15-17%', peptideBScore: '5-8%', notes: 'Semaglutide produces roughly double the weight loss of liraglutide in clinical trials.' },
+      { name: 'Dosing Frequency', peptideAScore: 'Once weekly', peptideBScore: 'Once daily', notes: 'Semaglutide offers significantly better convenience with weekly vs daily injections.' },
+      { name: 'FDA Status', peptideAScore: 'Approved', peptideBScore: 'Approved', notes: 'Both FDA-approved for chronic weight management (Wegovy and Saxenda respectively).' },
+      { name: 'Side Effects', peptideAScore: 'Moderate-High GI', peptideBScore: 'Moderate GI', notes: 'Both cause nausea and GI effects. Semaglutide may have slightly higher rates due to potency.' },
+      { name: 'Monthly Cost', peptideAScore: '$1,000-1,350', peptideBScore: '$1,000-1,350', notes: 'Brand-name costs similar. Both have compounded alternatives at lower price points.' },
+      { name: 'Track Record', peptideAScore: 'Newer (2021)', peptideBScore: 'Longer (2014)', notes: 'Liraglutide has longer post-market safety data. Both have strong clinical evidence bases.' },
+    ],
+  },
+  {
+    slug: 'bpc-157-vs-tb-500',
+    peptideA: 'bpc-157',
+    peptideB: 'tb-500',
+    title: 'BPC-157 vs TB-500: Which Healing Peptide Is Better?',
+    metaDescription: 'Compare BPC-157 vs TB-500 (thymosin beta-4) for injury recovery and healing. Mechanisms, dosing, research evidence, and which to choose for your goals.',
+    dimensions: [
+      { name: 'Primary Use', peptideAScore: 'Gut + tendon healing', peptideBScore: 'Systemic tissue repair', notes: 'BPC-157 excels at gut and localized injuries. TB-500 better for systemic and cardiac tissue repair.' },
+      { name: 'Mechanism', peptideAScore: 'Angiogenesis + GH receptor upregulation', peptideBScore: 'Actin regulation + cell migration', notes: 'Different mechanisms — often used together for complementary healing pathways.' },
+      { name: 'Research Level', peptideAScore: 'Moderate (mostly animal)', peptideBScore: 'Moderate (mostly animal)', notes: 'Both have extensive animal data but limited human clinical trials.' },
+      { name: 'Administration', peptideAScore: 'SubQ or oral', peptideBScore: 'SubQ only', notes: 'BPC-157 has oral bioavailability (especially for gut issues). TB-500 requires injection.' },
+      { name: 'Typical Duration', peptideAScore: '4-6 weeks', peptideBScore: '4-8 weeks', notes: 'Both run in short cycles. Loading phase common with TB-500.' },
+      { name: 'FDA Status', peptideAScore: 'Research only', peptideBScore: 'Research only', notes: 'Neither is FDA-approved. Both available from research peptide suppliers.' },
+      { name: 'Side Effects', peptideAScore: 'Minimal reported', peptideBScore: 'Minimal reported', notes: 'Both considered well-tolerated based on available data. Head rush occasionally reported with TB-500.' },
+      { name: 'Cost', peptideAScore: '$30-60/vial', peptideBScore: '$40-80/vial', notes: 'Both affordable. TB-500 slightly more expensive due to higher dosing requirements.' },
+    ],
+  },
+  {
+    slug: 'ipamorelin-vs-cjc-1295',
+    peptideA: 'ipamorelin',
+    peptideB: 'cjc-1295',
+    title: 'Ipamorelin vs CJC-1295: Growth Hormone Peptides Compared',
+    metaDescription: 'Compare ipamorelin (GHRP) vs CJC-1295 (GHRH) for growth hormone release. How they work together, dosing protocols, and why they are commonly stacked.',
+    dimensions: [
+      { name: 'Mechanism', peptideAScore: 'GHRP (ghrelin mimetic)', peptideBScore: 'GHRH analog', notes: 'Ipamorelin stimulates GH release via ghrelin receptor. CJC-1295 amplifies natural GHRH signaling.' },
+      { name: 'GH Release Pattern', peptideAScore: 'Pulsatile (sharp spikes)', peptideBScore: 'Sustained elevation', notes: 'Ipamorelin creates natural-like GH pulses. CJC-1295 (with DAC) extends GH elevation for days.' },
+      { name: 'Cortisol Impact', peptideAScore: 'No increase', peptideBScore: 'No increase', notes: 'Neither raises cortisol or prolactin — a key advantage over other GH secretagogues like GHRP-6.' },
+      { name: 'Best For', peptideAScore: 'Sleep + recovery', peptideBScore: 'Sustained GH levels', notes: 'Ipamorelin best pre-bed for sleep quality. CJC-1295 for consistent GH elevation.' },
+      { name: 'Dosing Frequency', peptideAScore: '2-3x daily', peptideBScore: '1-2x daily (no DAC) or 2x/week (with DAC)', notes: 'CJC-1295 with DAC needs less frequent dosing due to extended half-life.' },
+      { name: 'Synergy', peptideAScore: 'Best with CJC-1295', peptideBScore: 'Best with Ipamorelin', notes: 'These two are the most commonly stacked GH peptides — GHRP + GHRH = amplified GH release.' },
+    ],
+  },
+  {
+    slug: 'semaglutide-vs-survodutide',
+    peptideA: 'semaglutide',
+    peptideB: 'survodutide',
+    title: 'Semaglutide vs Survodutide: GLP-1 vs GLP-1/Glucagon Dual Agonist',
+    metaDescription: 'Compare semaglutide vs survodutide for weight loss and MASH treatment. How the GLP-1/glucagon dual mechanism differs from GLP-1 alone.',
+    dimensions: [
+      { name: 'Weight Loss', peptideAScore: '15-17%', peptideBScore: '18-19%', notes: 'Survodutide Phase 2 showed up to 18.7% weight loss at 46 weeks.' },
+      { name: 'Mechanism', peptideAScore: 'GLP-1 only', peptideBScore: 'GLP-1 + Glucagon', notes: 'Survodutide adds glucagon for enhanced hepatic fat metabolism and thermogenesis.' },
+      { name: 'FDA Status', peptideAScore: 'Approved', peptideBScore: 'Phase 3 trials', notes: 'Semaglutide approved. Survodutide in Phase 3 for obesity and MASH.' },
+      { name: 'Liver Benefits', peptideAScore: 'Moderate', peptideBScore: 'Strong', notes: 'Survodutide shows significant MASH resolution — glucagon receptor drives liver fat reduction.' },
+      { name: 'Side Effects', peptideAScore: 'Well-documented', peptideBScore: 'Limited data', notes: 'GI effects expected with both. Survodutide safety profile still being characterized.' },
+    ],
+  },
+  {
+    slug: 'ozempic-vs-wegovy',
+    peptideA: 'semaglutide',
+    peptideB: 'semaglutide',
+    title: 'Ozempic vs Wegovy: Same Drug, Different Doses — What You Need to Know',
+    metaDescription: 'Ozempic and Wegovy are both semaglutide. Learn the key differences in dosing, FDA approval, insurance coverage, and which one is prescribed for weight loss.',
+    dimensions: [
+      { name: 'Active Ingredient', peptideAScore: 'Semaglutide', peptideBScore: 'Semaglutide', notes: 'Identical molecule. The difference is dose, indication, and branding.' },
+      { name: 'FDA Indication', peptideAScore: 'Type 2 Diabetes', peptideBScore: 'Chronic Weight Management', notes: 'Ozempic approved for T2D. Wegovy approved for obesity/overweight with comorbidity.' },
+      { name: 'Max Dose', peptideAScore: '2.0 mg/week', peptideBScore: '2.4 mg/week', notes: 'Wegovy goes to a higher maintenance dose specifically optimized for weight loss.' },
+      { name: 'Insurance', peptideAScore: 'Better T2D coverage', peptideBScore: 'Weight loss coverage varies', notes: 'Ozempic often easier to get covered for diabetes. Wegovy coverage for obesity improving but inconsistent.' },
+      { name: 'Off-Label Use', peptideAScore: 'Common for weight loss', peptideBScore: 'N/A (on-label)', notes: 'Many get Ozempic prescribed off-label for weight loss due to better insurance coverage.' },
+    ],
+  },
+  {
+    slug: 'mounjaro-vs-zepbound',
+    peptideA: 'tirzepatide',
+    peptideB: 'tirzepatide',
+    title: 'Mounjaro vs Zepbound: Same Drug, Different Labels Explained',
+    metaDescription: 'Mounjaro and Zepbound are both tirzepatide. Compare FDA approvals, dosing, insurance, and which brand name to ask your doctor about for weight loss.',
+    dimensions: [
+      { name: 'Active Ingredient', peptideAScore: 'Tirzepatide', peptideBScore: 'Tirzepatide', notes: 'Same molecule. Different brand names for different indications.' },
+      { name: 'FDA Indication', peptideAScore: 'Type 2 Diabetes', peptideBScore: 'Chronic Weight Management', notes: 'Mounjaro for T2D. Zepbound for obesity/overweight.' },
+      { name: 'Max Dose', peptideAScore: '15 mg/week', peptideBScore: '15 mg/week', notes: 'Same dose range for both brands.' },
+      { name: 'Insurance', peptideAScore: 'Better T2D coverage', peptideBScore: 'Weight loss coverage growing', notes: 'Mounjaro often easier for insurance. Zepbound weight management coverage expanding.' },
+    ],
+  },
+  {
+    slug: 'ghk-cu-vs-bpc-157',
+    peptideA: 'ghk-cu',
+    peptideB: 'bpc-157',
+    title: 'GHK-Cu vs BPC-157: Anti-Aging vs Healing Peptides',
+    metaDescription: 'Compare GHK-Cu (copper peptide for skin and anti-aging) vs BPC-157 (body protection compound for healing). Different uses, mechanisms, and when to use each.',
+    dimensions: [
+      { name: 'Primary Use', peptideAScore: 'Skin/anti-aging', peptideBScore: 'Injury healing', notes: 'GHK-Cu excels at skin rejuvenation and collagen synthesis. BPC-157 targets internal tissue repair.' },
+      { name: 'Mechanism', peptideAScore: 'Copper delivery + gene modulation', peptideBScore: 'Angiogenesis + growth factor upregulation', notes: 'Different pathways — GHK-Cu modulates 4,000+ genes. BPC-157 promotes blood vessel growth and tissue repair.' },
+      { name: 'Administration', peptideAScore: 'Topical, SubQ, or IV', peptideBScore: 'SubQ or oral', notes: 'GHK-Cu uniquely effective as topical application for skin. BPC-157 has oral bioavailability.' },
+      { name: 'Research Level', peptideAScore: 'Moderate', peptideBScore: 'Moderate', notes: 'Both have solid preclinical data. GHK-Cu has more human skin studies; BPC-157 more animal healing studies.' },
+      { name: 'Side Effects', peptideAScore: 'Very mild', peptideBScore: 'Very mild', notes: 'Both well-tolerated. GHK-Cu topical has essentially zero systemic side effects.' },
+      { name: 'Cost', peptideAScore: '$25-60/vial', peptideBScore: '$30-60/vial', notes: 'Similar pricing. GHK-Cu topical serums can be more expensive from cosmetic brands.' },
+    ],
+  },
+  {
+    slug: 'semaglutide-vs-tirzepatide-vs-retatrutide',
+    peptideA: 'semaglutide',
+    peptideB: 'tirzepatide',
+    peptideC: 'retatrutide',
+    title: 'Semaglutide vs Tirzepatide vs Retatrutide: Complete GLP-1 Comparison',
+    metaDescription: 'The ultimate GLP-1 comparison: semaglutide (single), tirzepatide (dual), and retatrutide (triple agonist). Weight loss data, mechanisms, availability, and cost.',
+    dimensions: [
+      { name: 'Weight Loss', peptideAScore: '15-17%', peptideBScore: '20-26%', peptideCScore: '24-26%', notes: 'Progressive improvement from single to triple agonist. Retatrutide Phase 2 data rivals tirzepatide.' },
+      { name: 'Receptors', peptideAScore: 'GLP-1', peptideBScore: 'GLP-1 + GIP', peptideCScore: 'GLP-1 + GIP + Glucagon', notes: 'Each generation adds a receptor. More receptors = more metabolic pathways activated.' },
+      { name: 'FDA Status', peptideAScore: 'Approved', peptideBScore: 'Approved', peptideCScore: 'Phase 3', notes: 'Semaglutide and tirzepatide available now. Retatrutide expected 2026-2027.' },
+      { name: 'Safety Data', peptideAScore: 'Extensive', peptideBScore: 'Growing', peptideCScore: 'Limited', notes: 'Safety confidence inversely correlated with novelty. Semaglutide has most post-market data.' },
+      { name: 'Cost (Brand)', peptideAScore: '$1,000+/mo', peptideBScore: '$1,000+/mo', peptideCScore: 'N/A', notes: 'Brand-name GLP-1s are expensive. Retatrutide not yet commercially available.' },
+    ],
+  },
+  {
+    slug: 'ipamorelin-cjc-1295-vs-mk-677',
+    peptideA: 'ipamorelin',
+    peptideB: 'mk-677',
+    title: 'Ipamorelin + CJC-1295 vs MK-677: GH Peptides vs Oral Secretagogue',
+    metaDescription: 'Compare injectable ipamorelin/CJC-1295 stack vs oral MK-677 (ibutamoren) for growth hormone. Effectiveness, side effects, convenience, and cost.',
+    dimensions: [
+      { name: 'Administration', peptideAScore: 'SubQ injection', peptideBScore: 'Oral capsule', notes: 'MK-677 is oral — major convenience advantage. Ipamorelin/CJC requires daily injections.' },
+      { name: 'GH Elevation', peptideAScore: 'Pulsatile (natural pattern)', peptideBScore: 'Sustained 24hr elevation', notes: 'Ipamorelin/CJC mimics natural GH pulses. MK-677 raises GH and IGF-1 continuously.' },
+      { name: 'Hunger Effects', peptideAScore: 'Minimal', peptideBScore: 'Significant increase', notes: 'MK-677 strongly increases appetite via ghrelin pathway. Can be problematic for weight loss goals.' },
+      { name: 'Water Retention', peptideAScore: 'Minimal', peptideBScore: 'Moderate-High', notes: 'MK-677 commonly causes water retention and bloating, especially initially.' },
+      { name: 'Sleep Quality', peptideAScore: 'Improved', peptideBScore: 'Improved', notes: 'Both enhance sleep quality through GH elevation. Often cited as a primary benefit.' },
+      { name: 'Cost', peptideAScore: '$80-150/mo (stack)', peptideBScore: '$30-60/mo', notes: 'MK-677 significantly cheaper and no reconstitution needed.' },
+      { name: 'Blood Sugar', peptideAScore: 'Neutral', peptideBScore: 'May increase', notes: 'MK-677 can raise fasting blood glucose. Ipamorelin/CJC stack is blood sugar neutral.' },
+    ],
+  },
+  {
+    slug: 'compounded-vs-brand-semaglutide',
+    peptideA: 'semaglutide',
+    peptideB: 'semaglutide',
+    title: 'Compounded vs Brand-Name Semaglutide: Price, Safety, and Legality',
+    metaDescription: 'Compare compounded semaglutide ($150-500/mo) vs brand-name Ozempic/Wegovy ($1,000+/mo). Is compounded semaglutide safe, legal, and effective?',
+    dimensions: [
+      { name: 'Cost', peptideAScore: '$1,000-1,350/mo', peptideBScore: '$150-500/mo', notes: 'Compounded semaglutide is 60-85% cheaper. Price varies by pharmacy and source.' },
+      { name: 'FDA Oversight', peptideAScore: 'Full FDA approval', peptideBScore: '503A/503B compounding', notes: 'Brand-name is fully FDA-regulated. Compounded is legal under FDA shortage rules but less regulated.' },
+      { name: 'Purity/Testing', peptideAScore: 'Pharmaceutical grade', peptideBScore: 'Varies by pharmacy', notes: 'Brand-name guaranteed pure. Compounded quality depends on the pharmacy — 503B facilities have stricter standards.' },
+      { name: 'Availability', peptideAScore: 'Supply shortages', peptideBScore: 'Generally available', notes: 'Brand-name semaglutide has had persistent shortages. Compounding pharmacies fill the gap.' },
+      { name: 'Insurance', peptideAScore: 'Sometimes covered', peptideBScore: 'Rarely covered', notes: 'Brand-name may be covered by insurance. Compounded is typically cash-pay only.' },
+      { name: 'Legal Status', peptideAScore: 'Standard Rx', peptideBScore: 'Legal during shortage', notes: 'Compounded semaglutide is legal while FDA shortage designation is active. Status may change.' },
+    ],
+  },
+  {
+    slug: 'mots-c-vs-aod-9604',
+    peptideA: 'mots-c',
+    peptideB: 'aod-9604',
+    title: 'MOTS-c vs AOD-9604: Metabolic Peptides for Fat Loss Compared',
+    metaDescription: 'Compare MOTS-c (mitochondrial peptide) vs AOD-9604 (HGH fragment) for fat loss. Different mechanisms, research evidence, and which fits your goals.',
+    dimensions: [
+      { name: 'Mechanism', peptideAScore: 'Mitochondrial metabolic regulation', peptideBScore: 'Lipolysis (HGH fragment 176-191)', notes: 'MOTS-c activates AMPK and improves cellular metabolism. AOD-9604 mimics the fat-burning portion of growth hormone.' },
+      { name: 'Weight Loss Evidence', peptideAScore: 'Preliminary (strong animal data)', peptideBScore: 'Moderate', notes: 'AOD-9604 has more direct fat loss studies. MOTS-c research focuses on metabolic function broadly.' },
+      { name: 'Additional Benefits', peptideAScore: 'Exercise mimetic, insulin sensitivity', peptideBScore: 'Targeted fat reduction', notes: 'MOTS-c acts as an exercise mimetic. AOD-9604 is more narrowly focused on fat metabolism.' },
+      { name: 'Side Effects', peptideAScore: 'Minimal reported', peptideBScore: 'Minimal reported', notes: 'Both well-tolerated in available data.' },
+      { name: 'FDA Status', peptideAScore: 'Research only', peptideBScore: 'Research only', notes: 'Neither is FDA-approved for any indication.' },
+      { name: 'Cost', peptideAScore: '$60-120/vial', peptideBScore: '$30-50/vial', notes: 'MOTS-c tends to be more expensive due to synthesis complexity.' },
+    ],
+  },
+  {
+    slug: 'tesamorelin-vs-ipamorelin',
+    peptideA: 'tesamorelin',
+    peptideB: 'ipamorelin',
+    title: 'Tesamorelin vs Ipamorelin: Which GH Peptide Is Right for You?',
+    metaDescription: 'Compare tesamorelin (FDA-approved GHRH analog) vs ipamorelin (GHRP). Mechanisms, fat loss evidence, side effects, and availability.',
+    winner: 'tesamorelin',
+    dimensions: [
+      { name: 'FDA Status', peptideAScore: 'FDA Approved', peptideBScore: 'Research only', notes: 'Tesamorelin is FDA-approved for HIV lipodystrophy. Ipamorelin is not FDA-approved.' },
+      { name: 'Fat Loss Evidence', peptideAScore: 'Strong (visceral fat)', peptideBScore: 'Moderate', notes: 'Tesamorelin has clinical trial data showing visceral fat reduction. Ipamorelin evidence is preclinical.' },
+      { name: 'Mechanism', peptideAScore: 'GHRH analog', peptideBScore: 'Ghrelin mimetic (GHRP)', notes: 'Both stimulate GH release through different pathways. Often combined for synergistic effect.' },
+      { name: 'Hunger Impact', peptideAScore: 'Minimal', peptideBScore: 'Minimal', notes: 'Neither significantly affects appetite — unlike GHRP-6 or MK-677.' },
+      { name: 'Cost', peptideAScore: '$200-400/mo', peptideBScore: '$50-100/mo', notes: 'Tesamorelin is more expensive but offers stronger evidence and FDA approval.' },
+    ],
+  },
+]
+
+export function getComparison(slug: string): Comparison | undefined {
+  return comparisons.find((c) => c.slug === slug)
+}
+
+export function getComparisonsByPeptide(peptideSlug: string): Comparison[] {
+  return comparisons.filter(
+    (c) => c.peptideA === peptideSlug || c.peptideB === peptideSlug || c.peptideC === peptideSlug
+  )
+}
+
+export function getAllComparisonSlugs(): string[] {
+  return comparisons.map((c) => c.slug)
+}

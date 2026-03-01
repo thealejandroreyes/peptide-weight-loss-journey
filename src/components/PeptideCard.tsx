@@ -1,0 +1,47 @@
+import Link from 'next/link'
+import type { Peptide } from '@/lib/types'
+import { getCategoryLabel, getCategoryColor, getFdaStatusLabel, getFdaStatusColor } from '@/lib/utils'
+
+export function PeptideCard({ peptide }: { peptide: Peptide }) {
+  return (
+    <Link
+      href={`/peptides/${peptide.slug}`}
+      className="group block rounded-xl border border-border bg-[var(--card)] p-6 transition-all hover:border-cyan-500/30 hover:bg-[var(--card-hover)]"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h3 className="text-lg font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+            {peptide.name}
+          </h3>
+          {peptide.abbreviation && (
+            <p className="text-sm text-muted">{peptide.abbreviation}</p>
+          )}
+        </div>
+        <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${getCategoryColor(peptide.category)}`}>
+          {getCategoryLabel(peptide.category)}
+        </span>
+      </div>
+      <p className="mt-3 text-sm text-muted line-clamp-2">{peptide.description}</p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs ${getFdaStatusColor(peptide.fdaStatus)}`}>
+          {getFdaStatusLabel(peptide.fdaStatus)}
+        </span>
+        <span className="inline-flex items-center rounded-full border border-border px-2 py-0.5 text-xs text-muted">
+          {peptide.research.level} evidence
+        </span>
+      </div>
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {peptide.goals.slice(0, 3).map((goal) => (
+          <span key={goal} className="rounded bg-white/5 px-2 py-0.5 text-xs text-muted">
+            {goal}
+          </span>
+        ))}
+        {peptide.goals.length > 3 && (
+          <span className="rounded bg-white/5 px-2 py-0.5 text-xs text-muted">
+            +{peptide.goals.length - 3} more
+          </span>
+        )}
+      </div>
+    </Link>
+  )
+}

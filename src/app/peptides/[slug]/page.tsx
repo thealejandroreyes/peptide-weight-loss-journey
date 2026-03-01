@@ -1,0 +1,304 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { peptides, getPeptide, getAllSlugs } from '@/data/peptides'
+import { getComparisonsByPeptide } from '@/data/comparisons'
+import { getGoalsByPeptide } from '@/data/goals'
+import { getStacksByPeptide } from '@/data/stacks'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { FAQAccordion } from '@/components/FAQAccordion'
+import { AuthorBio } from '@/components/AuthorBio'
+import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { MedicalWebPageSchema, FAQSchema } from '@/components/SchemaMarkup'
+import { getCategoryLabel, getCategoryColor, getFdaStatusLabel, getFdaStatusColor } from '@/lib/utils'
+
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }))
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const peptide = getPeptide(params.slug)
+  if (!peptide) return { title: 'Not Found' }
+  return {
+    title: `${peptide.name} — Benefits, Dosing, Side Effects, Research`,
+    description: `Everything you need to know about ${peptide.name}: mechanism of action, research evidence, dosing protocols, side effects, and FAQ. ${peptide.description}`,
+  }
+}
+
+export default function PeptideDetailPage({ params }: { params: { slug: string } }) {
+  const peptide = getPeptide(params.slug)
+  if (!peptide) notFound()
+
+  const relatedComparisons = getComparisonsByPeptide(peptide.slug)
+  const relatedGoals = getGoalsByPeptide(peptide.slug)
+  const relatedStacks = getStacksByPeptide(peptide.slug)
+  const relatedPeptides = peptide.relatedPeptides
+    .map((slug) => getPeptide(slug))
+    .filter(Boolean)
+
+  return (
+    <>
+      <MedicalWebPageSchema
+        title={peptide.name}
+        description={peptide.description}
+        url={`/peptides/${peptide.slug}`}
+      />
+      {peptide.faq.length > 0 && <FAQSchema faqs={peptide.faq} />}
+
+      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[
+            { name: 'Peptides', href: '/peptides' },
+            { name: peptide.name, href: `/peptides/${peptide.slug}` },
+          ]}
+        />
+
+        {/* Header */}
+        <div className="flex flex-wrap items-start gap-3">
+          <h1 className="text-3xl font-bold text-foreground">{peptide.name}</h1>
+          {peptide.abbreviation && (
+            <span className="mt-1 text-lg text-muted">({peptide.abbreviation})</span>
+          )}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium ${getCategoryColor(peptide.category)}`}>
+            {getCategoryLabel(peptide.category)}
+          </span>
+          <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium ${getFdaStatusColor(peptide.fdaStatus)}`}>
+            {getFdaStatusLabel(peptide.fdaStatus)}
+          </span>
+          <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs text-muted">
+            {peptide.research.level} evidence
+          </span>
+        </div>
+
+        {/* Author byline — small, trust signal only */}
+        <div className="mt-4">
+          <AuthorBio />
+        </div>
+
+        {/* Key Takeaway */}
+        <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-5">
+          <p className="text-sm font-medium text-cyan-400">Key Takeaway</p>
+          <p className="mt-2 text-sm text-foreground leading-relaxed">{peptide.description}</p>
+        </div>
+
+        {/* Mechanism */}
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold text-foreground">How it works</h2>
+          <p className="mt-3 text-sm text-muted leading-relaxed">{peptide.mechanism}</p>
+        </section>
+
+        {/* Benefits */}
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold text-foreground">Benefits</h2>
+          <ul className="mt-3 space-y-2">
+            {peptide.benefits.map((b, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-muted">
+                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-400" />
+                {b}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Side Effects */}
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold text-foreground">Side effects</h2>
+          <ul className="mt-3 space-y-2">
+            {peptide.sideEffects.map((s, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-muted">
+                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber-400" />
+                {s}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Dosing */}
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold text-foreground">Dosing protocol</h2>
+          <div className="mt-4 rounded-xl border border-border bg-[var(--card)] p-5">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p className="text-xs font-medium text-muted uppercase tracking-wider">Typical Dose</p>
+                <p className="mt-1 text-sm text-foreground">{peptide.dosing.typical}</p>
+              </div>
+              <div>
+                <p className="text-xs font-medium text-muted uppercase tracking-wider">Frequency</p>
+                <p className="mt-1 text-sm text-foreground">{peptide.dosing.frequency}</p>
+              </div>
+              {peptide.dosing.cycleLength && (
+                <div>
+                  <p className="text-xs font-medium text-muted uppercase tracking-wider">Cycle Length</p>
+                  <p className="mt-1 text-sm text-foreground">{peptide.dosing.cycleLength}</p>
+                </div>
+              )}
+            </div>
+            {peptide.dosing.notes && (
+              <p className="mt-4 text-sm text-muted border-t border-border pt-4">{peptide.dosing.notes}</p>
+            )}
+          </div>
+        </section>
+
+        {/* Research */}
+        {peptide.research.keyStudies.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-foreground">Key research</h2>
+            <div className="mt-4 space-y-4">
+              {peptide.research.keyStudies.map((study, i) => (
+                <div key={i} className="rounded-xl border border-border bg-[var(--card)] p-5">
+                  <h3 className="text-sm font-medium text-foreground">{study.title}</h3>
+                  <p className="mt-1 text-xs text-muted">
+                    {study.journal} ({study.year})
+                    {study.pmid && (
+                      <>
+                        {' — '}
+                        <a
+                          href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyan-400 hover:text-cyan-300"
+                        >
+                          PubMed
+                        </a>
+                      </>
+                    )}
+                  </p>
+                  <p className="mt-2 text-sm text-muted">{study.keyFinding}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* FDA Status */}
+        {peptide.fdaApprovedFor && (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-foreground">FDA status</h2>
+            <p className="mt-3 text-sm text-muted">
+              <span className="font-medium text-green-400">FDA Approved</span> for: {peptide.fdaApprovedFor}
+            </p>
+          </section>
+        )}
+
+        {/* FAQ */}
+        {peptide.faq.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-foreground">Frequently asked questions</h2>
+            <div className="mt-4">
+              <FAQAccordion faqs={peptide.faq} />
+            </div>
+          </section>
+        )}
+
+        {/* Related Comparisons */}
+        {relatedComparisons.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-foreground">Compare {peptide.name}</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {relatedComparisons.map((comp) => (
+                <Link
+                  key={comp.slug}
+                  href={`/compare/${comp.slug}`}
+                  className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                >
+                  <p className="text-sm font-medium text-foreground">{comp.title}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related Stacks */}
+        {relatedStacks.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-foreground">Stacks with {peptide.name}</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {relatedStacks.map((stack) => (
+                <Link
+                  key={stack.slug}
+                  href={`/stacks/${stack.slug}`}
+                  className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                >
+                  <p className="text-sm font-medium text-foreground">{stack.name}</p>
+                  <p className="mt-1 text-xs text-muted">{stack.difficulty} — {stack.estimatedMonthlyCost}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related Goals */}
+        {relatedGoals.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-foreground">Goals</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {relatedGoals.map((goal) => (
+                <Link
+                  key={goal.slug}
+                  href={`/goals/${goal.slug}`}
+                  className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                >
+                  {goal.name}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related Peptides */}
+        {relatedPeptides.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-foreground">Related peptides</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {relatedPeptides.map((rp) =>
+                rp ? (
+                  <Link
+                    key={rp.slug}
+                    href={`/peptides/${rp.slug}`}
+                    className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                  >
+                    {rp.name}
+                  </Link>
+                ) : null
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* Weight loss internal link — on every page (solar system: all planets link to sun) */}
+        {peptide.category !== 'glp1-weight-loss' && (
+          <section className="mt-10 rounded-xl border border-cyan-500/10 bg-cyan-500/5 p-5">
+            <p className="text-sm text-foreground">
+              <span className="font-medium">Looking for weight loss peptides?</span>{' '}
+              See our complete guide to the{' '}
+              <Link href="/goals/weight-loss" className="text-cyan-400 hover:text-cyan-300">
+                best peptides for weight loss
+              </Link>
+              {' '}or compare{' '}
+              <Link href="/compare/semaglutide-vs-tirzepatide" className="text-cyan-400 hover:text-cyan-300">
+                semaglutide vs tirzepatide
+              </Link>
+              .
+            </p>
+          </section>
+        )}
+
+        {/* Newsletter */}
+        <div className="mt-8">
+          <NewsletterSignup />
+        </div>
+
+        {/* Medical Disclaimer */}
+        <div className="mt-8 rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
+          <p className="text-xs text-amber-200/80">
+            <span className="font-medium">Medical Disclaimer:</span> This content is for informational and educational
+            purposes only. It is not intended as medical advice or a substitute for professional medical consultation,
+            diagnosis, or treatment. Always consult a qualified healthcare provider before starting any peptide protocol.
+          </p>
+        </div>
+      </div>
+    </>
+  )
+}
