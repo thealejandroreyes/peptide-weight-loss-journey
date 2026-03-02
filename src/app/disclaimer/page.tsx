@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 export const metadata: Metadata = {
   title: 'Medical Disclaimer',
   description:
-    'Important medical disclaimer for Peptide Weight Loss Journey. This site provides educational content only and is not a substitute for professional medical advice.',
+    'Important medical disclaimer for Peptide Nerds. This site provides educational content only and is not a substitute for professional medical advice.',
 }
 
 export default function DisclaimerPage() {
@@ -21,7 +21,7 @@ export default function DisclaimerPage() {
 
         <h2>Not medical advice</h2>
         <p>
-          The content on Peptide Weight Loss Journey (peptideweightlossjourney.com) is provided for general informational
+          The content on Peptide Nerds (peptidenerds.com) is provided for general informational
           and educational purposes only. It is not intended to be, and should not be construed as, medical advice,
           diagnosis, or treatment recommendations.
         </p>

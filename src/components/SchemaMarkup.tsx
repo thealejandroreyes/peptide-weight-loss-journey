@@ -22,12 +22,12 @@ export function ArticleSchema({ title, description, url, datePublished, dateModi
     author: {
       '@type': 'Person',
       name: 'Fat Man in the Arena',
-      url: 'https://peptideweightlossjourney.com/about',
+      url: 'https://peptidenerds.com/about',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Peptide Weight Loss Journey',
-      url: 'https://peptideweightlossjourney.com',
+      name: 'Peptide Nerds',
+      url: 'https://peptidenerds.com',
     },
   }
 
@@ -78,7 +78,7 @@ export function MedicalWebPageSchema({
     author: {
       '@type': 'Person',
       name: 'Fat Man in the Arena',
-      url: 'https://peptideweightlossjourney.com/about',
+      url: 'https://peptidenerds.com/about',
     },
   }
 
@@ -89,8 +89,8 @@ export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Peptide Weight Loss Journey',
-    url: 'https://peptideweightlossjourney.com',
+    name: 'Peptide Nerds',
+    url: 'https://peptidenerds.com',
     sameAs: ['https://instagram.com/fatmaninthearena'],
     description:
       'Evidence-based peptide education. Real research, real experience, no hype.',
@@ -107,7 +107,7 @@ export function BreadcrumbSchema({ items }: { items: { name: string; url: string
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `https://peptideweightlossjourney.com${item.url}`,
+      item: `https://peptidenerds.com${item.url}`,
     })),
   }
 

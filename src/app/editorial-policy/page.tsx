@@ -17,7 +17,7 @@ export default function EditorialPolicyPage() {
       <div className="prose-custom mt-8">
         <h2>Our standards</h2>
         <p>
-          Every piece of content on Peptide Weight Loss Journey follows strict editorial guidelines designed to ensure
+          Every piece of content on Peptide Nerds follows strict editorial guidelines designed to ensure
           accuracy, transparency, and usefulness.
         </p>
 

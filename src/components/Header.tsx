@@ -20,7 +20,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-xl font-bold text-foreground">
-            Peptide<span className="text-cyan-400">WLJ</span>
+            Peptide<span className="text-cyan-400">Nerds</span>
           </span>
         </Link>
 

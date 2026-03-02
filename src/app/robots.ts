@@ -32,6 +32,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://peptideweightlossjourney.com/sitemap.xml',
+    sitemap: 'https://peptidenerds.com/sitemap.xml',
   }
 }

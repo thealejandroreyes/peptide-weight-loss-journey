@@ -11,12 +11,23 @@ export function NewsletterSignup() {
     if (!email) return
 
     setStatus('loading')
-    // TODO: Wire to Beehiiv API
-    // For now, simulate success
-    setTimeout(() => {
-      setStatus('success')
-      setEmail('')
-    }, 1000)
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      if (res.ok) {
+        setStatus('success')
+        setEmail('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -45,6 +56,9 @@ export function NewsletterSignup() {
             {status === 'loading' ? 'Joining...' : 'Subscribe'}
           </button>
         </form>
+      )}
+      {status === 'error' && (
+        <p className="mt-2 text-xs text-red-400">Something went wrong. Try again.</p>
       )}
     </div>
   )

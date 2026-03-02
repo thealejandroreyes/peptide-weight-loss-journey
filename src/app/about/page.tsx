@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
-  title: 'About — Fat Man in the Arena',
+  title: 'About Fat Man in the Arena',
   description:
     'I am 33 lbs into a peptide weight loss journey. This site is my way of sharing everything I learn — the research, the protocols, the results, and the mistakes.',
 }
@@ -32,7 +32,7 @@ export default function AboutPage() {
 
         <h2>What this site is</h2>
         <p>
-          Peptide Weight Loss Journey is an evidence-based reference database for peptides. Every claim is backed by
+          Peptide Nerds is an evidence-based reference database for peptides. Every claim is backed by
           published research with PubMed citations. Every FAQ answer is written to be useful, not to sell you something.
         </p>
         <p>

@@ -3,8 +3,9 @@ import { getAllSlugs } from '@/data/peptides'
 import { getAllComparisonSlugs } from '@/data/comparisons'
 import { getAllGoalSlugs } from '@/data/goals'
 import { getAllStackSlugs } from '@/data/stacks'
+import { getAllPosts } from '@/lib/blog'
 
-const BASE_URL = 'https://peptideweightlossjourney.com'
+const BASE_URL = 'https://peptidenerds.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString()
@@ -24,13 +25,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/editorial-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ]
 
-  // Peptide pages
-  const peptidePages: MetadataRoute.Sitemap = getAllSlugs().map((slug) => ({
+  // Peptide pages (main + sub-pages)
+  const peptideSlugs = getAllSlugs()
+  const subPages = ['benefits', 'dosage', 'side-effects', 'faq'] as const
+
+  const peptidePages: MetadataRoute.Sitemap = peptideSlugs.map((slug) => ({
     url: `${BASE_URL}/peptides/${slug}`,
     lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: 0.9,
   }))
+
+  const peptideSubPages: MetadataRoute.Sitemap = peptideSlugs.flatMap((slug) =>
+    subPages.map((sub) => ({
+      url: `${BASE_URL}/peptides/${slug}/${sub}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }))
+  )
 
   // Comparison pages
   const comparisonPages: MetadataRoute.Sitemap = getAllComparisonSlugs().map((slug) => ({
@@ -56,5 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...peptidePages, ...comparisonPages, ...goalPages, ...stackPages]
+  // Blog posts
+  const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.date ? new Date(post.date).toISOString() : now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...peptidePages, ...peptideSubPages, ...comparisonPages, ...goalPages, ...stackPages, ...blogPages]
 }

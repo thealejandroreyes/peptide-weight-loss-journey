@@ -17,16 +17,16 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Peptide Weight Loss Journey — Evidence-Based Peptide Guide',
-    template: '%s | Peptide Weight Loss Journey',
+    default: 'Peptide Nerds — Evidence-Based Peptide Guide',
+    template: '%s | Peptide Nerds',
   },
   description:
     'The evidence-based guide to peptides for weight loss. GLP-1 comparisons, dosing protocols, side effect management, and research-backed recommendations.',
-  metadataBase: new URL('https://peptideweightlossjourney.com'),
+  metadataBase: new URL('https://peptidenerds.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Peptide Weight Loss Journey',
+    siteName: 'Peptide Nerds',
   },
   twitter: {
     card: 'summary_large_image',

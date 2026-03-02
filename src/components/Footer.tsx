@@ -28,7 +28,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div>
             <Link href="/" className="text-lg font-bold text-foreground">
-              Peptide<span className="text-cyan-400">WLJ</span>
+              Peptide<span className="text-cyan-400">Nerds</span>
             </Link>
             <p className="mt-3 text-sm text-muted">
               The evidence-based guide to peptides for weight loss. Research-backed comparisons, dosing protocols, and tools.
@@ -59,7 +59,7 @@ export function Footer() {
             .
           </p>
           <p className="mt-2 text-center text-xs text-muted">
-            &copy; {new Date().getFullYear()} Peptide Weight Loss Journey. All rights reserved.
+            &copy; {new Date().getFullYear()} Peptide Nerds. All rights reserved.
           </p>
         </div>
       </div>

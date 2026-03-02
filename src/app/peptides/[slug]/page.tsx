@@ -19,9 +19,10 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const peptide = getPeptide(params.slug)
   if (!peptide) return { title: 'Not Found' }
+  const year = new Date().getFullYear()
   return {
-    title: `${peptide.name} — Benefits, Dosing, Side Effects, Research`,
-    description: `Everything you need to know about ${peptide.name}: mechanism of action, research evidence, dosing protocols, side effects, and FAQ. ${peptide.description}`,
+    title: `${peptide.name}: Benefits, Dosage, Side Effects & Research ${year}`,
+    description: `Everything you need to know about ${peptide.name}: how it works, dosage protocols, side effects, and what the research actually says. Updated ${new Date().toLocaleString('en-US', { month: 'long' })} ${year}.`,
   }
 }
 
