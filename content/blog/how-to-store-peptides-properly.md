@@ -9,7 +9,7 @@ pillar: "peptide-how-to"
 content_type: "how-to"
 date: "2026-03-03"
 author: "Fat Man in the Arena"
-word_count: 1950
+word_count: 2150
 reading_time: "8 min read"
 ---
 
@@ -110,6 +110,20 @@ This distinction matters more than most people realize.
 BAC water itself should be stored at room temperature before opening and refrigerated after the vial is first punctured. Discard opened BAC water after 28 days.
 
 Use our [BAC water calculator](/tools/bac-water-calculator) to determine the right volume for your specific peptide and desired concentration. The [reconstitution calculator](/tools/reconstitution-calculator) can also help with the math.
+
+## How to store peptides in the fridge
+
+The refrigerator is where most of your peptides will live once reconstituted. But not all fridge spots are equal.
+
+**Best location:** A middle shelf, away from the back wall and away from the door. The back wall near the cooling element can drop below 2 C and potentially freeze your solution. The door shelves experience the most temperature fluctuation every time you open the fridge.
+
+**Use a dedicated container.** A small opaque plastic box or a ziplock bag in a drawer keeps vials organized, protected from light, and prevents them from getting knocked around. Label the container so household members know not to move it.
+
+**Orientation:** Store vials upright with the stopper facing up. This minimizes the surface area of the solution in contact with the rubber stopper, which can leach trace amounts of material over time. It also makes it easier to see the solution level and check for cloudiness.
+
+**Temperature check.** If you want to be thorough, a small fridge thermometer placed near your peptides confirms you are hitting the 2-8 C (36-46 F) range. Many household refrigerators run warmer than people assume, especially older models or units that are frequently opened.
+
+**Keep a log.** Write the reconstitution date on each vial. After 28 days, discard regardless of how much is left. This is especially important if you are running multiple peptides -- it is easy to lose track.
 
 ## Light sensitivity
 

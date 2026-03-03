@@ -8,13 +8,15 @@ import { DisclaimerBanner } from '@/components/DisclaimerBanner'
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
+  display: 'swap',
 })
 
 const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500'],
   style: ['normal', 'italic'],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {

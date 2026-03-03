@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { goals } from '@/data/goals'
 import { cn } from '@/lib/utils'
 import {
   NavDropdown,
@@ -66,41 +65,28 @@ const peptideSections: NavDropdownSection[] = [
   },
 ]
 
-// Short descriptions for goals in the dropdown
-const goalDescriptions: Record<string, string> = {
-  'weight-loss': 'GLP-1s and metabolic peptides',
-  'muscle-growth': 'GH secretagogues and recovery',
-  'fat-loss': 'Target visceral and stubborn fat',
-  'injury-recovery': 'BPC-157, TB-500 and more',
-  'anti-aging': 'Longevity and skin health',
-  'sleep-quality': 'Improve deep sleep cycles',
-  'gut-health': 'Gut lining repair and healing',
-  'cognitive-enhancement': 'Focus, memory, neuroprotection',
-  'immune-support': 'Immune modulation peptides',
-  'skin-health': 'Collagen and rejuvenation',
-  'sexual-health': 'Libido and hormonal support',
-  'joint-health': 'Joint repair and mobility',
-}
-
-// Build goals sections dynamically — split into 2 columns
-const goalItems = goals.map((g) => ({
-  name: g.name,
-  href: `/goals/${g.slug}`,
-  description: goalDescriptions[g.slug],
-}))
-
 const goalsSections: NavDropdownSection[] = [
   {
     title: 'Weight & Body',
-    items: goalItems.filter((g) =>
-      ['/goals/weight-loss', '/goals/fat-loss', '/goals/muscle-growth', '/goals/skin-health', '/goals/sexual-health', '/goals/joint-health'].includes(g.href)
-    ),
+    items: [
+      { name: 'Weight Loss', href: '/goals/weight-loss', description: 'GLP-1s and metabolic peptides' },
+      { name: 'Fat Loss', href: '/goals/fat-loss', description: 'Target visceral and stubborn fat' },
+      { name: 'Muscle Growth', href: '/goals/muscle-growth', description: 'GH secretagogues and recovery' },
+      { name: 'Skin Health', href: '/goals/skin-health', description: 'Collagen and rejuvenation' },
+      { name: 'Sexual Health', href: '/goals/sexual-health', description: 'Libido and hormonal support' },
+      { name: 'Joint Health', href: '/goals/joint-health', description: 'Joint repair and mobility' },
+    ],
   },
   {
     title: 'Health & Performance',
-    items: goalItems.filter((g) =>
-      ['/goals/injury-recovery', '/goals/anti-aging', '/goals/sleep-quality', '/goals/gut-health', '/goals/cognitive-enhancement', '/goals/immune-support'].includes(g.href)
-    ),
+    items: [
+      { name: 'Injury Recovery', href: '/goals/injury-recovery', description: 'BPC-157, TB-500 and more' },
+      { name: 'Anti-Aging', href: '/goals/anti-aging', description: 'Longevity and skin health' },
+      { name: 'Sleep Quality', href: '/goals/sleep-quality', description: 'Improve deep sleep cycles' },
+      { name: 'Gut Health', href: '/goals/gut-health', description: 'Gut lining repair and healing' },
+      { name: 'Cognitive Enhancement', href: '/goals/cognitive-enhancement', description: 'Focus, memory, neuroprotection' },
+      { name: 'Immune Support', href: '/goals/immune-support', description: 'Immune modulation peptides' },
+    ],
   },
 ]
 

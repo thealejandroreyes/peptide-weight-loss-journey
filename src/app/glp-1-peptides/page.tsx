@@ -350,9 +350,15 @@ export default function Glp1PeptidesPage() {
           <h2>Further reading</h2>
           <ul>
             <li><Link href="/peptides-weight-loss-guide" className="text-accent hover:text-accent-hover">Peptides for Weight Loss: The Complete Guide</Link></li>
+            <li><Link href="/blog/best-glp-1-for-weight-loss-2026" className="text-accent hover:text-accent-hover">Best GLP-1 for Weight Loss in 2026: Every Option Ranked</Link></li>
+            <li><Link href="/blog/semaglutide-weight-loss-results-week-by-week" className="text-accent hover:text-accent-hover">Semaglutide Weight Loss Results Week by Week</Link></li>
+            <li><Link href="/blog/tirzepatide-before-and-after-3-months" className="text-accent hover:text-accent-hover">Tirzepatide Before and After 3 Months: What the Data Shows</Link></li>
             <li><Link href="/blog/retatrutide-phase-2-results-triple-agonist" className="text-accent hover:text-accent-hover">Retatrutide Phase 2 Results: What 24% Weight Loss Means</Link></li>
             <li><Link href="/blog/semaglutide-vs-tirzepatide-weight-loss" className="text-accent hover:text-accent-hover">Semaglutide vs Tirzepatide: What the Research Says</Link></li>
+            <li><Link href="/blog/oral-semaglutide-vs-injectable-weight-loss" className="text-accent hover:text-accent-hover">Oral vs Injectable Semaglutide: Which Works Better?</Link></li>
+            <li><Link href="/blog/glp-1-side-effects-what-to-expect" className="text-accent hover:text-accent-hover">GLP-1 Side Effects: What to Expect</Link></li>
             <li><Link href="/blog/glp-1-muscle-loss-what-research-shows" className="text-accent hover:text-accent-hover">Do GLP-1 Medications Cause Muscle Loss?</Link></li>
+            <li><Link href="/blog/new-weight-loss-peptides-2026" className="text-accent hover:text-accent-hover">New Weight Loss Peptides in 2026: Pipeline Update</Link></li>
             <li><Link href="/goals/weight-loss" className="text-accent hover:text-accent-hover">Best Peptides for Weight Loss (Goal Page)</Link></li>
           </ul>
 
