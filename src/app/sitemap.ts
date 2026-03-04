@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/dosage-calculator`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/reconstitution-calculator`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/bac-water-calculator`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/tools/peptide-finder`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/tools`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/tracker`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/peptides-weight-loss-guide`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE_URL}/glp-1-peptides`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
