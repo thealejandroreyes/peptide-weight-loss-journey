@@ -8,7 +8,7 @@ slug: "bpc-157-vs-tb-500-which-healing-peptide-is-better"
 pillar: "peptide-comparisons"
 content_type: "comparison"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 2150
 reading_time: "9 min read"
 ---

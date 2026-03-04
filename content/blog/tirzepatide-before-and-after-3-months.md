@@ -8,7 +8,7 @@ slug: "tirzepatide-before-and-after-3-months"
 pillar: "glp-1-peptides"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1780
 reading_time: "8 min read"
 ---

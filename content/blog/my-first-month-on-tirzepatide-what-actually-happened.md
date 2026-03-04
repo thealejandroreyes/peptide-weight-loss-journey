@@ -8,7 +8,7 @@ slug: "my-first-month-on-tirzepatide-what-actually-happened"
 pillar: "glp-1-peptides"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 2100
 reading_time: "9 min read"
 ---

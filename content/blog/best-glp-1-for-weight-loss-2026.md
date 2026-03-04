@@ -8,7 +8,7 @@ slug: "best-glp-1-for-weight-loss-2026"
 pillar: "glp-1-peptides"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1950
 reading_time: "9 min read"
 ---

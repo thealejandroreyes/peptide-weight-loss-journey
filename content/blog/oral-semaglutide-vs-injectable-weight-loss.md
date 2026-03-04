@@ -8,7 +8,7 @@ slug: "oral-semaglutide-vs-injectable-weight-loss"
 pillar: "peptide-comparisons"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1780
 reading_time: "8 min read"
 ---

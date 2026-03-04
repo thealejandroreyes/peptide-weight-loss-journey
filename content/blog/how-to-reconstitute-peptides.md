@@ -8,7 +8,7 @@ slug: "how-to-reconstitute-peptides"
 pillar: "peptide-how-to"
 content_type: "how-to"
 date: "2026-03-01"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1800
 ---
 

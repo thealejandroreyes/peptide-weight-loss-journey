@@ -8,7 +8,7 @@ slug: "peptides-for-weight-loss-and-muscle-gain"
 pillar: "peptide-weight-loss"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1900
 reading_time: "8 min read"
 ---

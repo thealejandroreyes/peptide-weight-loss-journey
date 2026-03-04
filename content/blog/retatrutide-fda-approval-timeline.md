@@ -8,7 +8,7 @@ slug: "retatrutide-fda-approval-timeline"
 pillar: "peptide-research"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1780
 reading_time: "7 min read"
 ---

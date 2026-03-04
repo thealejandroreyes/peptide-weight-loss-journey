@@ -8,7 +8,7 @@ slug: "new-weight-loss-peptides-2026"
 pillar: "peptide-research"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1920
 reading_time: "9 min read"
 ---

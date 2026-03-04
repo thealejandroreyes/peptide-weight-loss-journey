@@ -8,7 +8,7 @@ slug: "can-you-drink-alcohol-on-semaglutide"
 pillar: "peptide-safety"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1750
 reading_time: "7 min read"
 ---

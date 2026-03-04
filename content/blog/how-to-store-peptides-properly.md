@@ -8,7 +8,7 @@ slug: "how-to-store-peptides-properly"
 pillar: "peptide-how-to"
 content_type: "how-to"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 2150
 reading_time: "8 min read"
 ---

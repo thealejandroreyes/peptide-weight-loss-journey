@@ -8,7 +8,7 @@ slug: "semaglutide-vs-tirzepatide-weight-loss"
 pillar: "peptide-comparisons"
 content_type: "comparison"
 date: "2026-03-01"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 2100
 ---
 

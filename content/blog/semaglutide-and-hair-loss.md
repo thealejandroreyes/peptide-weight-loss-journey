@@ -8,7 +8,7 @@ slug: "semaglutide-and-hair-loss"
 pillar: "peptide-safety"
 content_type: "guide"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1850
 reading_time: "8 min read"
 ---

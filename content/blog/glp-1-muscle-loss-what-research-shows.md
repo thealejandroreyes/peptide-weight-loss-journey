@@ -8,7 +8,7 @@ slug: "glp-1-muscle-loss-what-research-shows"
 pillar: "peptide-research"
 content_type: "research"
 date: "2026-03-03"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 2200
 reading_time: "9 min read"
 ---

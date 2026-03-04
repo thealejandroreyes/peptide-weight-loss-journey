@@ -8,7 +8,7 @@ slug: "glp-1-side-effects-what-to-expect"
 pillar: "peptide-safety"
 content_type: "guide"
 date: "2026-03-01"
-author: "Fat Man in the Arena"
+author: "Peptide Nerds Editorial"
 word_count: 1900
 ---
 
