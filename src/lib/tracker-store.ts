@@ -1,4 +1,4 @@
-import type { TrackerData, TrackerProtocol, DoseLog } from './tracker-types'
+import type { TrackerData, TrackerProtocol, DoseLog, TrackerPreferences } from './tracker-types'
 
 const STORAGE_KEY = 'peptide-nerds-tracker'
 
@@ -75,6 +75,13 @@ export function undoLog(logId: string): TrackerData {
     }
     data.doseLogs = data.doseLogs.filter((l) => l.id !== logId)
   }
+  saveTracker(data)
+  return data
+}
+
+export function savePreferences(prefs: TrackerPreferences): TrackerData {
+  const data = loadTracker()
+  data.preferences = prefs
   saveTracker(data)
   return data
 }

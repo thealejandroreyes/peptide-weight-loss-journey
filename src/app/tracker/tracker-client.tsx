@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import type { TrackerData } from '@/lib/tracker-types'
 import { loadTracker } from '@/lib/tracker-store'
@@ -11,13 +11,16 @@ import { AddProtocol } from './components/add-protocol'
 import { DoseCalendar } from './components/dose-calendar'
 import { StreakDisplay } from './components/streak-display'
 import { VialTracker } from './components/vial-tracker'
+import { DoseTimeline } from './components/dose-timeline'
+import { EmailGate, isEmailUnlocked } from './components/email-gate'
 
-type Tab = 'today' | 'protocols' | 'calendar' | 'stats'
+type Tab = 'today' | 'protocols' | 'calendar' | 'timeline' | 'stats'
 
 const tabs: { id: Tab; label: string }[] = [
   { id: 'today', label: 'Today' },
   { id: 'protocols', label: 'Protocols' },
   { id: 'calendar', label: 'Calendar' },
+  { id: 'timeline', label: 'Timeline' },
   { id: 'stats', label: 'Stats' },
 ]
 
@@ -29,6 +32,7 @@ export function TrackerClient() {
   const [showAddProtocol, setShowAddProtocol] = useState(false)
   const [initialPeptideSlug, setInitialPeptideSlug] = useState<string | undefined>()
   const [initialStackSlug, setInitialStackSlug] = useState<string | undefined>()
+  const [emailUnlocked, setEmailUnlockedState] = useState(false)
 
   const refresh = useCallback(() => {
     setData(loadTracker())
@@ -36,6 +40,7 @@ export function TrackerClient() {
 
   useEffect(() => {
     refresh()
+    setEmailUnlockedState(isEmailUnlocked())
   }, [refresh])
 
   // Auto-open AddProtocol from URL params
@@ -52,6 +57,19 @@ export function TrackerClient() {
       router.replace('/tracker', { scroll: false })
     }
   }, [searchParams, router])
+
+  // Count unique days with logged (non-skipped) doses
+  const uniqueLogDays = useMemo(() => {
+    if (!data) return 0
+    const days = new Set(
+      data.doseLogs
+        .filter((l) => !l.skipped)
+        .map((l) => l.timestamp.split('T')[0])
+    )
+    return days.size
+  }, [data])
+
+  const isGated = uniqueLogDays >= 7 && !emailUnlocked
 
   if (!data) return null
 
@@ -145,6 +163,16 @@ export function TrackerClient() {
             )}
             {activeTab === 'calendar' && (
               <DoseCalendar data={data} />
+            )}
+            {activeTab === 'timeline' && (
+              isGated ? (
+                <EmailGate
+                  loggedDays={uniqueLogDays}
+                  onUnlock={() => setEmailUnlockedState(true)}
+                />
+              ) : (
+                <DoseTimeline data={data} />
+              )
             )}
             {activeTab === 'stats' && (
               <div className="space-y-6">

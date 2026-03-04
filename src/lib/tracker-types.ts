@@ -30,6 +30,29 @@ export interface DoseLog {
   unit: 'mcg' | 'mg'
   skipped?: boolean
   notes?: string
+  weight?: number
+  weightUnit?: 'lbs' | 'kg'
+  energy?: number // 1-5
+  sideEffects?: string[]
+  mood?: number // 1-5
+}
+
+export const SIDE_EFFECT_OPTIONS = [
+  'Nausea',
+  'Headache',
+  'Fatigue',
+  'Injection site pain',
+  'Diarrhea',
+  'Constipation',
+  'Dizziness',
+  'Insomnia',
+  'Appetite changes',
+  'Hair thinning',
+  'Other',
+] as const
+
+export interface TrackerPreferences {
+  weightUnit: 'lbs' | 'kg'
 }
 
 export interface StreakInfo {
@@ -60,4 +83,5 @@ export interface ScheduledDose {
 export interface TrackerData {
   protocols: TrackerProtocol[]
   doseLogs: DoseLog[]
+  preferences?: TrackerPreferences
 }

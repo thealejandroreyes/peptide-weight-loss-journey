@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import type { TrackerData, TrackerProtocol } from '@/lib/tracker-types'
 import { updateProtocol, deleteProtocol } from '@/lib/tracker-store'
-import { getFrequencyLabel, getCurrentDose, getVialStatus } from '@/lib/tracker-utils'
+import { getFrequencyLabel, getCurrentDose, getVialStatus, getCycleStatus } from '@/lib/tracker-utils'
 import { AddProtocol } from './add-protocol'
 
 interface Props {
@@ -39,6 +39,7 @@ export function ProtocolList({ data, onUpdate, onAddNew }: Props) {
   function renderCard(protocol: TrackerProtocol) {
     const currentDose = getCurrentDose(protocol)
     const vialStatus = getVialStatus(protocol, data.doseLogs)
+    const cycleStatus = getCycleStatus(protocol)
     const doseLabel =
       currentDose >= 1 && protocol.unit === 'mg'
         ? `${currentDose} mg`
@@ -126,6 +127,28 @@ export function ProtocolList({ data, onUpdate, onAddNew }: Props) {
           <p className="mt-2 text-xs text-muted line-clamp-2">{protocol.notes}</p>
         )}
 
+        {/* Cycle status */}
+        {cycleStatus.hasCycle && (
+          <div className="mt-3 flex items-center gap-2">
+            {cycleStatus.isOnCycle ? (
+              <>
+                <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-[10px] font-medium text-accent">
+                  {cycleStatus.label}
+                </span>
+                {cycleStatus.weeksRemaining <= 2 && (
+                  <span className="rounded-full bg-cta/20 px-2.5 py-0.5 text-[10px] font-medium text-cta-foreground">
+                    Cycle off in {cycleStatus.weeksRemaining}wk
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="rounded-full bg-pearl px-2.5 py-0.5 text-[10px] font-medium text-muted">
+                {cycleStatus.label}
+              </span>
+            )}
+          </div>
+        )}
+
         <div className="mt-3 flex items-center justify-between">
           <Link
             href={`/peptides/${protocol.peptideSlug}`}
@@ -133,9 +156,9 @@ export function ProtocolList({ data, onUpdate, onAddNew }: Props) {
           >
             Learn more
           </Link>
-          {protocol.cycleWeeks && (
-            <span className="text-xs text-muted">
-              {protocol.cycleWeeks}wk on / {protocol.offWeeks || 0}wk off
+          {cycleStatus.hasCycle && (
+            <span className="text-[10px] text-muted">
+              {cycleStatus.totalOnWeeks}wk on / {cycleStatus.totalOffWeeks}wk off
             </span>
           )}
         </div>

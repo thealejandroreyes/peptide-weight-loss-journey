@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
-  const { email } = await request.json()
+  const { email, utm_source } = await request.json()
 
   if (!email || !email.includes('@')) {
     return NextResponse.json({ error: 'Valid email required' }, { status: 400 })
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       email,
       reactivate_existing: true,
       send_welcome_email: true,
-      utm_source: 'peptidenerds.com',
+      utm_source: utm_source || 'peptidenerds.com',
       utm_medium: 'website',
     }),
   })

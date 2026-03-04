@@ -251,3 +251,99 @@ export function formatDateFull(dateStr: string): string {
   const d = new Date(dateStr + 'T12:00:00')
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 }
+
+export interface CycleStatus {
+  hasCycle: boolean
+  isOnCycle: boolean
+  currentWeek: number
+  totalOnWeeks: number
+  totalOffWeeks: number
+  weeksRemaining: number // weeks left in current phase (on or off)
+  restartDate: string | null // ISO date when off-cycle ends (null if on-cycle)
+  cycleOffDate: string | null // ISO date when on-cycle ends (null if off-cycle)
+  label: string // e.g. "Week 8 of 12" or "Off-cycle — restarts Mar 15"
+}
+
+export function getCycleStatus(protocol: TrackerProtocol): CycleStatus {
+  const none: CycleStatus = {
+    hasCycle: false,
+    isOnCycle: true,
+    currentWeek: 0,
+    totalOnWeeks: 0,
+    totalOffWeeks: 0,
+    weeksRemaining: 0,
+    restartDate: null,
+    cycleOffDate: null,
+    label: '',
+  }
+
+  if (!protocol.cycleWeeks || !protocol.offWeeks) return none
+
+  const today = toDateStr(new Date())
+  const totalDays = daysBetween(protocol.startDate, today)
+  if (totalDays < 0) {
+    return {
+      ...none,
+      hasCycle: true,
+      totalOnWeeks: protocol.cycleWeeks,
+      totalOffWeeks: protocol.offWeeks,
+      label: `Starts ${formatDateShort(protocol.startDate)}`,
+    }
+  }
+
+  const totalCycleDays = (protocol.cycleWeeks + protocol.offWeeks) * 7
+  const dayInCycle = totalDays % totalCycleDays
+  const onPhaseDays = protocol.cycleWeeks * 7
+  const isOnCycle = dayInCycle < onPhaseDays
+
+  if (isOnCycle) {
+    const currentWeek = Math.floor(dayInCycle / 7) + 1
+    const daysLeftInOn = onPhaseDays - dayInCycle
+    const weeksRemaining = Math.ceil(daysLeftInOn / 7)
+    const cycleOffDate = new Date()
+    cycleOffDate.setDate(cycleOffDate.getDate() + daysLeftInOn)
+
+    return {
+      hasCycle: true,
+      isOnCycle: true,
+      currentWeek,
+      totalOnWeeks: protocol.cycleWeeks,
+      totalOffWeeks: protocol.offWeeks,
+      weeksRemaining,
+      restartDate: null,
+      cycleOffDate: toDateStr(cycleOffDate),
+      label: `Week ${currentWeek} of ${protocol.cycleWeeks}`,
+    }
+  } else {
+    const daysIntoOff = dayInCycle - onPhaseDays
+    const offPhaseDays = protocol.offWeeks * 7
+    const daysLeftInOff = offPhaseDays - daysIntoOff
+    const weeksRemaining = Math.ceil(daysLeftInOff / 7)
+    const restartDate = new Date()
+    restartDate.setDate(restartDate.getDate() + daysLeftInOff)
+
+    return {
+      hasCycle: true,
+      isOnCycle: false,
+      currentWeek: 0,
+      totalOnWeeks: protocol.cycleWeeks,
+      totalOffWeeks: protocol.offWeeks,
+      weeksRemaining,
+      restartDate: toDateStr(restartDate),
+      cycleOffDate: null,
+      label: `Off-cycle — restarts ${formatDateShort(toDateStr(restartDate))}`,
+    }
+  }
+}
+
+export function getResupplyDate(protocol: TrackerProtocol, logs: DoseLog[]): string | null {
+  const status = getVialStatus(protocol, logs)
+  if (!status || status.daysUntilEmpty > 999) return null
+
+  // Add 3-day lead time for ordering
+  const leadTimeDays = 3
+  const daysUntilOrder = Math.max(0, status.daysUntilEmpty - leadTimeDays)
+  const orderDate = new Date()
+  orderDate.setDate(orderDate.getDate() + daysUntilOrder)
+  return toDateStr(orderDate)
+}
