@@ -9,7 +9,7 @@
  */
 
 const SITE_URL = 'https://peptidenerds.com'
-const INDEXNOW_KEY = 'peptidenerds-indexnow'
+const INDEXNOW_KEY = '48bdbf17b3ebed027533188619dbdd5e'
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
 
 async function getUrlsFromSitemap() {

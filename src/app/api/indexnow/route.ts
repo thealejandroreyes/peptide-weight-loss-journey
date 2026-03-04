@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const INDEXNOW_KEY = 'peptidenerds-indexnow'
+const INDEXNOW_KEY = '48bdbf17b3ebed027533188619dbdd5e'
 const SITE_URL = 'https://peptidenerds.com'
 const KEY_LOCATION = `${SITE_URL}/${INDEXNOW_KEY}.txt`
 
