@@ -61,11 +61,17 @@ async function main() {
     process.exit(0)
   }
 
-  // Submit in batches of 10,000 (IndexNow limit)
-  for (let i = 0; i < urls.length; i += 10000) {
-    const batch = urls.slice(i, i + 10000)
+  // Submit in batches of 100 with a short delay between batches
+  const BATCH_SIZE = 100
+  let submitted = 0
+  for (let i = 0; i < urls.length; i += BATCH_SIZE) {
+    const batch = urls.slice(i, i + BATCH_SIZE)
     const status = await submitToIndexNow(batch)
-    console.log(`Batch ${Math.floor(i / 10000) + 1}: submitted ${batch.length} URLs — IndexNow responded ${status}`)
+    submitted += batch.length
+    console.log(`Batch ${Math.floor(i / BATCH_SIZE) + 1}: submitted ${batch.length} URLs (${submitted}/${urls.length}) — status ${status}`)
+    if (i + BATCH_SIZE < urls.length) {
+      await new Promise((r) => setTimeout(r, 1000))
+    }
   }
 
   console.log('Done.')
