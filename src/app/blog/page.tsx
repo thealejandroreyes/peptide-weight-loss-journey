@@ -7,7 +7,7 @@ import { BlogFilteredList } from '@/components/BlogFilteredList'
 export const metadata: Metadata = {
   title: 'Blog — Peptide Research, Protocols, and Journey Updates',
   description:
-    'Latest articles on peptide research, weight loss protocols, community insights, and personal journey updates from @fatmaninthearena.',
+    'Latest articles on peptide research, weight loss protocols, and community insights from the Peptide Nerds editorial team.',
 }
 
 export default function BlogPage() {

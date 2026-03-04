@@ -61,8 +61,8 @@ export default function DisclaimerPage() {
 
         <h2>Personal experience disclaimer</h2>
         <p>
-          Where personal experiences are shared by the author (@fatmaninthearena), these represent one individual&apos;s
-          journey and should not be interpreted as clinical evidence or medical recommendations.
+          Where personal experiences are shared, these represent individual journeys and should not be
+          interpreted as clinical evidence or medical recommendations.
         </p>
 
         <h2>Liability limitation</h2>

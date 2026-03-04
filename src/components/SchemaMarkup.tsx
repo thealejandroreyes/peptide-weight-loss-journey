@@ -20,8 +20,8 @@ export function ArticleSchema({ title, description, url, datePublished, dateModi
     ...(dateModified && { dateModified }),
     ...(image && { image }),
     author: {
-      '@type': 'Person',
-      name: 'Fat Man in the Arena',
+      '@type': 'Organization',
+      name: 'Peptide Nerds',
       url: 'https://peptidenerds.com/about',
     },
     publisher: {
@@ -76,8 +76,8 @@ export function MedicalWebPageSchema({
     },
     lastReviewed: new Date().toISOString().split('T')[0],
     author: {
-      '@type': 'Person',
-      name: 'Fat Man in the Arena',
+      '@type': 'Organization',
+      name: 'Peptide Nerds',
       url: 'https://peptidenerds.com/about',
     },
   }
@@ -91,7 +91,7 @@ export function OrganizationSchema() {
     '@type': 'Organization',
     name: 'Peptide Nerds',
     url: 'https://peptidenerds.com',
-    sameAs: ['https://instagram.com/fatmaninthearena'],
+    sameAs: [],
     description:
       'Evidence-based peptide education. Real research, real experience, no hype.',
   }

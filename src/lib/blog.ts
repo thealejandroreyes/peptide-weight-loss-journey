@@ -58,7 +58,7 @@ export function getAllPosts(): BlogPostMeta[] {
         pillar: data.pillar || '',
         content_type: data.content_type || 'guide',
         date: data.date || '',
-        author: data.author || 'Fat Man in the Arena',
+        author: data.author || 'Peptide Nerds Editorial',
         word_count: wordCount,
         reading_time: getReadingTime(wordCount),
       } satisfies BlogPostMeta
@@ -98,7 +98,7 @@ export function getPost(slug: string): BlogPostFull | null {
       pillar: data.pillar || '',
       content_type: data.content_type || 'guide',
       date: data.date || '',
-      author: data.author || 'Fat Man in the Arena',
+      author: data.author || 'Peptide Nerds Editorial',
       word_count: wordCount,
       reading_time: getReadingTime(wordCount),
       content,

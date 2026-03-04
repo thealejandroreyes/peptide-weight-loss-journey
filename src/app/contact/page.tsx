@@ -143,12 +143,6 @@ export default function ContactPage() {
         <h2>Other ways to connect</h2>
         <ul>
           <li>
-            <strong>Instagram:</strong>{' '}
-            <a href="https://instagram.com/fatmaninthearena" target="_blank" rel="noopener noreferrer">
-              @fatmaninthearena
-            </a>
-          </li>
-          <li>
             <strong>Newsletter:</strong> Sign up at the bottom of any page for weekly research breakdowns
             and protocol updates.
           </li>
