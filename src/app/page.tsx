@@ -51,10 +51,10 @@ export default function HomePage() {
                 Best peptides for weight loss
               </Link>
               <Link
-                href="/compare/semaglutide-vs-tirzepatide"
+                href="/compare/semaglutide-vs-tirzepatide-vs-retatrutide"
                 className="rounded-full border border-white/20 px-6 py-3 text-[13.5px] font-semibold tracking-[0.3px] text-white transition-colors hover:border-white/40 hover:text-white"
               >
-                Semaglutide vs Tirzepatide
+                Semaglutide vs Tirzepatide vs Retatrutide
               </Link>
               <Link
                 href="/tools/dosage-calculator"
