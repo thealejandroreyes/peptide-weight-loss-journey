@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Peptide Stacks — Proven Combination Protocols',
   description:
     'Peptide stack protocols for weight loss, healing, muscle growth, sleep, and more. Dosing, timing, cost estimates, and what to expect from each combination.',
+  alternates: { canonical: '/stacks' },
 }
 
 const difficultyColors: Record<string, string> = {

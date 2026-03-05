@@ -6,7 +6,7 @@ import { stacks } from '@/data/stacks'
 import { PeptideCard } from '@/components/PeptideCard'
 import { TrustBar } from '@/components/TrustBar'
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
-import { OrganizationSchema } from '@/components/SchemaMarkup'
+import { OrganizationSchema, WebSiteSchema } from '@/components/SchemaMarkup'
 
 const weightLossComparisons = comparisons.filter((c) =>
   ['semaglutide-vs-tirzepatide', 'semaglutide-vs-retatrutide', 'tirzepatide-vs-retatrutide', 'semaglutide-vs-liraglutide', 'ozempic-vs-wegovy', 'compounded-vs-brand-semaglutide'].includes(c.slug)
@@ -28,6 +28,7 @@ export default function HomePage() {
   return (
     <>
       <OrganizationSchema />
+      <WebSiteSchema />
 
       {/* Hero — weight loss first */}
       <section className="relative overflow-hidden bg-primary">

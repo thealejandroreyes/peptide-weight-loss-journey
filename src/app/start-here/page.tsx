@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Start Here — The Complete Beginner Guide to Peptides (2026)',
   description:
     'New to peptides? Start here. Evidence-based introduction to peptides, what they do, FDA status, and how to navigate 44 compound profiles, 7 free tools, and 200+ citations.',
+  alternates: { canonical: '/start-here' },
   openGraph: {
     title: 'Start Here — Beginner Guide to Peptides',
     description: 'The #1 entry point for understanding peptides. 44 compounds, 7 free tools, 200+ citations.',

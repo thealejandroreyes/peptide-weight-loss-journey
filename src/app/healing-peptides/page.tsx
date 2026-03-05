@@ -7,6 +7,7 @@ const config = getPillarConfig('healing-peptides')!
 export const metadata: Metadata = {
   title: config.metaTitle,
   description: config.metaDescription,
+  alternates: { canonical: '/healing-peptides' },
   openGraph: {
     title: config.metaTitle,
     description: config.metaDescription,

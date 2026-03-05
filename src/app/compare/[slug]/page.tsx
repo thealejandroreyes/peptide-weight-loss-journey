@@ -28,6 +28,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: comparison.title,
     description: comparison.metaDescription,
+    alternates: { canonical: `/compare/${slug}` },
+    openGraph: {
+      title: comparison.title,
+      description: comparison.metaDescription,
+      type: 'article',
+      url: `/compare/${slug}`,
+    },
   }
 }
 

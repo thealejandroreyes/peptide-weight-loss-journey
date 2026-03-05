@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Peptides for Weight Loss: The Complete Guide (2026)',
   description:
     'Everything you need to know about peptides for weight loss. GLP-1 agonists, dual and triple agonists, research peptides, dosing, side effects, and how to choose the right one.',
+  alternates: { canonical: '/peptides-weight-loss-guide' },
   openGraph: {
     title: 'Peptides for Weight Loss: The Complete Guide (2026)',
     description:

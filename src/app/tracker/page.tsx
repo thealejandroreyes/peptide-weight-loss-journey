@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Peptide Protocol Tracker',
   description:
     'Track your peptide protocols, log doses, monitor vial inventory, and maintain streaks. Free, private, and runs entirely in your browser.',
+  alternates: { canonical: '/tracker' },
   openGraph: {
     title: 'Peptide Protocol Tracker | Peptide Nerds',
     description:

@@ -97,6 +97,30 @@ export const goals: Goal[] = [
     topPeptides: ['bpc-157', 'tb-500', 'ghk-cu', 'pentadecapeptide', 'aod-9604'],
     considerations: 'BPC-157 and TB-500 are the most used peptides for joint issues — BPC-157 for tendon and ligament repair, TB-500 for broader connective tissue healing. Both are typically cycled 4-8 weeks. GHK-Cu may support cartilage through collagen synthesis. AOD-9604 has some research for osteoarthritis. For chronic joint conditions, peptides are best combined with physical therapy, joint-friendly exercise, and addressing root causes (body weight, biomechanics).',
   },
+  {
+    name: 'Hair Growth',
+    slug: 'hair-growth',
+    description: 'Peptides that stimulate hair follicle activity, improve scalp circulation, and support thicker, fuller hair growth.',
+    metaDescription: 'Best peptides for hair growth and hair loss: GHK-Cu, copper peptides, and follicle-stimulating compounds ranked by research evidence.',
+    topPeptides: ['ghk-cu', 'bpc-157', 'tb-500', 'thymosin-beta-4', 'ipamorelin'],
+    considerations: 'GHK-Cu is the most researched peptide for hair growth. It stimulates follicle stem cells, increases hair follicle size, and extends the anagen (growth) phase. Topical application and microneedling are the most common delivery methods for scalp use. Thymosin Beta-4 promotes hair follicle migration and differentiation. GH secretagogues like ipamorelin may support hair indirectly through improved growth hormone levels. Most hair peptide protocols run 3-6 months before visible results. Combine with minoxidil or finasteride for stronger outcomes if appropriate.',
+  },
+  {
+    name: 'Inflammation',
+    slug: 'inflammation',
+    description: 'Peptides that reduce systemic and localized inflammation through immune modulation, cytokine regulation, and tissue repair pathways.',
+    metaDescription: 'Best anti-inflammatory peptides: BPC-157, KPV, LL-37, and other inflammation-reducing peptides ranked by research evidence.',
+    topPeptides: ['bpc-157', 'kpv', 'll-37', 'tb-500', 'ghk-cu', 'thymosin-alpha-1'],
+    considerations: 'BPC-157 reduces inflammation through multiple pathways including nitric oxide modulation and growth factor upregulation. KPV is a potent anti-inflammatory tripeptide derived from alpha-MSH that targets NF-kB signaling. LL-37 has both antimicrobial and immunomodulatory properties. These peptides modulate inflammation rather than simply suppressing it, which is a key distinction from NSAIDs. For chronic systemic inflammation, addressing root causes (diet, sleep, stress, gut health) alongside peptide protocols produces the best results. Most anti-inflammatory protocols run 4-8 weeks.',
+  },
+  {
+    name: 'Energy & Stamina',
+    slug: 'energy-stamina',
+    description: 'Peptides that boost cellular energy production, improve mitochondrial function, and support sustained physical and mental stamina.',
+    metaDescription: 'Best peptides for energy and stamina: MOTS-c, NAD+, and other mitochondrial and metabolic peptides for fighting fatigue.',
+    topPeptides: ['mots-c', 'nad-plus', 'ss-31', 'ipamorelin', 'cjc-1295', 'epithalon'],
+    considerations: 'MOTS-c is the standout energy peptide. It activates AMPK (the cellular energy sensor), improves mitochondrial function, and enhances exercise capacity. SS-31 (Elamipretide) targets the inner mitochondrial membrane directly, protecting against oxidative damage and improving ATP production. NAD+ precursors support cellular energy metabolism broadly. GH secretagogues like ipamorelin and CJC-1295 improve energy indirectly through better sleep quality and recovery. For sustained results, pair energy peptides with consistent exercise, quality sleep, and stress management. Protocols typically run 8-12 weeks.',
+  },
 ]
 
 export function getGoal(slug: string): Goal | undefined {

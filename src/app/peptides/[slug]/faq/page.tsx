@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${peptide.name} FAQ: Common Questions Answered (${year})`,
     description: `Frequently asked questions about ${peptide.name}. Research-backed answers about dosage, side effects, results, and safety. Updated ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}.`,
+    alternates: { canonical: `/peptides/${slug}/faq` },
   }
 }
 

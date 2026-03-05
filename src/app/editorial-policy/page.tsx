@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'How We Research — Editorial Policy & Methodology',
   description:
     'Our editorial standards for accuracy, sourcing, and transparency. How we research, write, and review peptide content across 279 pages.',
+  alternates: { canonical: '/editorial-policy' },
 }
 
 export default function EditorialPolicyPage() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Peptide Goals — Find the Best Peptides for Weight Loss and More',
   description:
     'Find the right peptides for your goal. Weight loss, fat loss, body recomposition, gut health, healing, and more. Evidence-based recommendations with research citations.',
+  alternates: { canonical: '/goals' },
 }
 
 // Weight-loss-related goals surface first (solar system: sun first)

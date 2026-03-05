@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${stack.name} — Peptide Stack Protocol`,
     description: stack.metaDescription,
+    alternates: { canonical: `/stacks/${slug}` },
   }
 }
 

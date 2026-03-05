@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `Best Peptides for ${goal.name} — Evidence-Based Recommendations`,
     description: goal.metaDescription,
+    alternates: { canonical: `/goals/${slug}` },
   }
 }
 

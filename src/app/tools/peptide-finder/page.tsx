@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Peptide Finder Quiz | PeptideNerds',
   description:
     'Answer a few questions to find the best peptides for your goals. Personalized recommendations based on your experience level and preferences.',
+  alternates: { canonical: '/tools/peptide-finder' },
 }
 
 export default function PeptideFinderPage() {

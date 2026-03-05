@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { peptides, getPeptidesByCategory } from '@/data/peptides'
 import { PeptideCard } from '@/components/PeptideCard'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { CollectionPageSchema } from '@/components/SchemaMarkup'
 import type { PeptideCategory } from '@/lib/types'
 
 export const metadata: Metadata = {
   title: 'Peptide Guide — GLP-1 Weight Loss Peptides and 40 Compounds',
   description:
     'Complete peptide database: GLP-1 weight loss peptides (semaglutide, tirzepatide, retatrutide), healing peptides, metabolic peptides, and more. Research evidence, dosing, and FDA status.',
+  alternates: { canonical: '/peptides' },
 }
 
 // GLP-1 weight loss first (solar system: sun category leads)
@@ -23,6 +25,13 @@ const categories: { key: PeptideCategory; label: string; description: string }[]
 
 export default function PeptidesPage() {
   return (
+    <>
+    <CollectionPageSchema
+      name="Peptide Guide"
+      description="Complete peptide database with research evidence, dosing protocols, and FDA status."
+      numberOfItems={peptides.length}
+      url="/peptides"
+    />
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'Peptides', href: '/peptides' }]} />
 
@@ -48,5 +57,6 @@ export default function PeptidesPage() {
         )
       })}
     </div>
+    </>
   )
 }

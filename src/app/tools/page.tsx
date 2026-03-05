@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Peptide Tools — Calculators, Finders, and Trackers',
   description:
     'Free peptide tools: dosage calculator, reconstitution calculator, BAC water calculator, peptide finder, stack builder, cost calculator, and protocol tracker.',
+  alternates: { canonical: '/tools' },
 }
 
 const tools = [

@@ -22,7 +22,7 @@ export function ArticleSchema({ title, description, url, datePublished, dateModi
     author: {
       '@type': 'Organization',
       name: 'Peptide Nerds',
-      url: 'https://peptidenerds.com/about',
+      url: 'https://peptidenerds.com/about/editorial-team',
     },
     publisher: {
       '@type': 'Organization',
@@ -78,7 +78,7 @@ export function MedicalWebPageSchema({
     author: {
       '@type': 'Organization',
       name: 'Peptide Nerds',
-      url: 'https://peptidenerds.com/about',
+      url: 'https://peptidenerds.com/about/editorial-team',
     },
   }
 
@@ -94,6 +94,56 @@ export function OrganizationSchema() {
     sameAs: [],
     description:
       'Evidence-based peptide education. Real research, real experience, no hype.',
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+}
+
+export function WebSiteSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Peptide Nerds',
+    url: 'https://peptidenerds.com',
+    description: 'Evidence-based peptide education. 44+ compound profiles, 200+ clinical citations, free tools, and research-backed recommendations.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Peptide Nerds',
+    },
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+}
+
+export function CollectionPageSchema({ name, description, numberOfItems, url }: { name: string; description: string; numberOfItems: number; url: string }) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: `https://peptidenerds.com${url}`,
+    numberOfItems,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Peptide Nerds',
+    },
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+}
+
+export function BlogSchema({ name, description, url }: { name: string; description: string; url: string }) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name,
+    description,
+    url: `https://peptidenerds.com${url}`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Peptide Nerds',
+      url: 'https://peptidenerds.com',
+    },
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

@@ -10,10 +10,11 @@ import { FAQAccordion } from '@/components/FAQAccordion'
 import { AuthorBio } from '@/components/AuthorBio'
 import { InlineContentCTA } from '@/components/InlineContentCTA'
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
-import { MedicalWebPageSchema, FAQSchema } from '@/components/SchemaMarkup'
+import { MedicalWebPageSchema, FAQSchema, BreadcrumbSchema } from '@/components/SchemaMarkup'
 import { ReadingProgress } from '@/components/ReadingProgress'
 import { WhereToGet } from '@/components/WhereToGet'
 import { RecommendedSupplies } from '@/components/RecommendedSupplies'
+import { QuickFacts } from '@/components/QuickFacts'
 import { getCategoryLabel, getCategoryColor, getFdaStatusLabel, getFdaStatusColor } from '@/lib/utils'
 
 export function generateStaticParams() {
@@ -28,6 +29,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${peptide.name}: Benefits, Dosage, Side Effects & Research ${year}`,
     description: `Everything you need to know about ${peptide.name}: how it works, dosage protocols, side effects, and what the research actually says. Updated ${new Date().toLocaleString('en-US', { month: 'long' })} ${year}.`,
+    alternates: { canonical: `/peptides/${slug}` },
+    openGraph: {
+      title: `${peptide.name}: Benefits, Dosage, Side Effects & Research ${year}`,
+      description: `Everything you need to know about ${peptide.name}: how it works, dosage protocols, side effects, and what the research actually says.`,
+      type: 'article',
+      url: `/peptides/${slug}`,
+    },
   }
 }
 
@@ -52,6 +60,11 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
         url={`/peptides/${peptide.slug}`}
       />
       {peptide.faq.length > 0 && <FAQSchema faqs={peptide.faq} />}
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'Peptides', url: '/peptides' },
+        { name: peptide.name, url: `/peptides/${peptide.slug}` },
+      ]} />
 
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
         <Breadcrumbs
@@ -95,6 +108,11 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
         <div className="mt-6 rounded-xl border border-accent/20 bg-soft-sky/30 p-5">
           <p className="text-sm font-medium text-accent">Key Takeaway</p>
           <p className="mt-2 text-sm text-foreground leading-relaxed">{peptide.description}</p>
+        </div>
+
+        {/* Quick Facts */}
+        <div className="mt-6">
+          <QuickFacts peptide={peptide} />
         </div>
 
         {/* Mechanism */}

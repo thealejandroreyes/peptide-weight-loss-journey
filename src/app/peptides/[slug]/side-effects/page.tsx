@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${peptide.name} Side Effects: What to Know Before Starting (${year})`,
     description: `Complete side effects profile for ${peptide.name}. Common and rare side effects, what to watch for, and when to contact your doctor. Research-backed safety information.`,
+    alternates: { canonical: `/peptides/${slug}/side-effects` },
   }
 }
 

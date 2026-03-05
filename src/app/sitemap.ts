@@ -8,31 +8,36 @@ import { getAllPosts } from '@/lib/blog'
 
 const BASE_URL = 'https://peptidenerds.com'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString()
+// Use a stable date for content that doesn't change on every build.
+// Update this when compound data or site structure changes meaningfully.
+const CONTENT_LAST_REVIEWED = '2026-03-04T00:00:00.000Z'
+const TOOLS_LAST_UPDATED = '2026-03-04T00:00:00.000Z'
+const TRUST_PAGES_DATE = '2026-03-01T00:00:00.000Z'
 
+export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE_URL}/peptides`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE_URL}/compare`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/goals`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/stacks`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.8 },
-    { url: `${BASE_URL}/tools/dosage-calculator`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/tools/reconstitution-calculator`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/tools/bac-water-calculator`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/tools/peptide-finder`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/tools`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/tracker`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/peptides-weight-loss-guide`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE_URL}/glp-1-peptides`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE_URL}/start-here`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${BASE_URL}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${BASE_URL}/disclaimer`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/editorial-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/affiliate-disclosure`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: BASE_URL, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${BASE_URL}/peptides`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}/compare`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/goals`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/stacks`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/blog`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/tools/dosage-calculator`, lastModified: TOOLS_LAST_UPDATED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/tools/reconstitution-calculator`, lastModified: TOOLS_LAST_UPDATED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/tools/bac-water-calculator`, lastModified: TOOLS_LAST_UPDATED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/tools/peptide-finder`, lastModified: TOOLS_LAST_UPDATED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/tools`, lastModified: TOOLS_LAST_UPDATED, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/tracker`, lastModified: TOOLS_LAST_UPDATED, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/peptides-weight-loss-guide`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}/glp-1-peptides`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}/start-here`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/contact`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.5 },
+    { url: `${BASE_URL}/about`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/about/editorial-team`, lastModified: CONTENT_LAST_REVIEWED, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/disclaimer`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/editorial-policy`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/affiliate-disclosure`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.3 },
   ]
 
   // Peptide pages (main + sub-pages)
@@ -41,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const peptidePages: MetadataRoute.Sitemap = peptideSlugs.map((slug) => ({
     url: `${BASE_URL}/peptides/${slug}`,
-    lastModified: now,
+    lastModified: CONTENT_LAST_REVIEWED,
     changeFrequency: 'weekly' as const,
     priority: 0.9,
   }))
@@ -49,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const peptideSubPages: MetadataRoute.Sitemap = peptideSlugs.flatMap((slug) =>
     subPages.map((sub) => ({
       url: `${BASE_URL}/peptides/${slug}/${sub}`,
-      lastModified: now,
+      lastModified: CONTENT_LAST_REVIEWED,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }))
@@ -58,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Comparison pages
   const comparisonPages: MetadataRoute.Sitemap = getAllComparisonSlugs().map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,
-    lastModified: now,
+    lastModified: CONTENT_LAST_REVIEWED,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
@@ -66,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Goal pages
   const goalPages: MetadataRoute.Sitemap = getAllGoalSlugs().map((slug) => ({
     url: `${BASE_URL}/goals/${slug}`,
-    lastModified: now,
+    lastModified: CONTENT_LAST_REVIEWED,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
@@ -74,15 +79,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Stack pages
   const stackPages: MetadataRoute.Sitemap = getAllStackSlugs().map((slug) => ({
     url: `${BASE_URL}/stacks/${slug}`,
-    lastModified: now,
+    lastModified: CONTENT_LAST_REVIEWED,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))
 
-  // Blog posts
+  // Blog posts — use actual post dates
   const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post.date ? new Date(post.date).toISOString() : now,
+    lastModified: post.date ? new Date(post.date).toISOString() : CONTENT_LAST_REVIEWED,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))
@@ -90,7 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Pillar pages
   const pillarPages: MetadataRoute.Sitemap = getAllPillarSlugs().map((slug) => ({
     url: `${BASE_URL}/${slug}`,
-    lastModified: now,
+    lastModified: CONTENT_LAST_REVIEWED,
     changeFrequency: 'weekly' as const,
     priority: 0.9,
   }))

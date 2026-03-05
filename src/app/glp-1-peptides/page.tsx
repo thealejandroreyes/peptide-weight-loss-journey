@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'GLP-1 Peptides for Weight Loss: Complete Guide to Every Compound (2026)',
   description:
     'Complete guide to GLP-1 receptor agonists for weight loss. Semaglutide, tirzepatide, retatrutide, liraglutide, survodutide — mechanism, trials, dosing, side effects, and comparisons.',
+  alternates: { canonical: '/glp-1-peptides' },
   openGraph: {
     title: 'GLP-1 Peptides for Weight Loss: Every Compound Explained',
     description:

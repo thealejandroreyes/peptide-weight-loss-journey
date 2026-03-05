@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Affiliate Disclosure — Peptide Nerds',
   description:
     'Full affiliate and advertising disclosure for peptidenerds.com. We believe in transparency about how this site is funded.',
+  alternates: { canonical: '/affiliate-disclosure' },
 }
 
 export default function AffiliateDisclosurePage() {

@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${peptide.name} Benefits: What the Research Shows (${year})`,
     description: `Evidence-based overview of ${peptide.name} benefits. What the clinical research actually supports, how it works, and what results to realistically expect. Updated ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}.`,
+    alternates: { canonical: `/peptides/${slug}/benefits` },
   }
 }
 

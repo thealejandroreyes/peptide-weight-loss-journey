@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${peptide.name} Dosage Guide: Protocols & Timing (${year})`,
     description: `${peptide.name} dosage information based on published research. Typical doses, frequency, cycle length, and important dosing notes. Updated ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}.`,
+    alternates: { canonical: `/peptides/${slug}/dosage` },
   }
 }
 

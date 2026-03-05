@@ -3,17 +3,25 @@ import { getAllPosts } from '@/lib/blog'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { BlogFilteredList } from '@/components/BlogFilteredList'
+import { BlogSchema } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
   title: 'Blog — Peptide Research, Protocols, and Journey Updates',
   description:
     'Latest articles on peptide research, weight loss protocols, and community insights from the Peptide Nerds editorial team.',
+  alternates: { canonical: '/blog' },
 }
 
 export default function BlogPage() {
   const posts = getAllPosts()
 
   return (
+    <>
+    <BlogSchema
+      name="Peptide Nerds Blog"
+      description="Research breakdowns, protocol deep dives, and journey updates from the Peptide Nerds editorial team."
+      url="/blog"
+    />
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'Blog', href: '/blog' }]} />
 
@@ -28,5 +36,6 @@ export default function BlogPage() {
         <NewsletterSignup />
       </div>
     </div>
+    </>
   )
 }

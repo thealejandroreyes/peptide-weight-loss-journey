@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Medical Disclaimer',
   description:
     'Important medical disclaimer for Peptide Nerds. This site provides educational content only and is not a substitute for professional medical advice.',
+  alternates: { canonical: '/disclaimer' },
 }
 
 export default function DisclaimerPage() {

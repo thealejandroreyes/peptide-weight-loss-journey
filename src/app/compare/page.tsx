@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Peptide Comparisons — Head-to-Head Analysis of 27+ Peptides',
   description:
     'Compare peptides head-to-head: semaglutide vs tirzepatide, BPC-157 vs TB-500, and more. Side-by-side analysis of efficacy, side effects, cost, and availability.',
+  alternates: { canonical: '/compare' },
 }
 
 const categoryConfig: { key: ComparisonCategory; label: string; description: string }[] = [
