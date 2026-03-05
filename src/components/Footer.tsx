@@ -24,6 +24,7 @@ const footerLinks = {
   ],
   Legal: [
     { name: 'Medical Disclaimer', href: '/disclaimer' },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Editorial Policy', href: '/editorial-policy' },
     { name: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
     { name: 'Contact', href: '/contact' },

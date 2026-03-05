@@ -95,6 +95,23 @@ export default function AboutPage() {
             <li><strong>Quarterly audits:</strong> Published content is reviewed against new research and updated as evidence evolves.</li>
           </ol>
 
+          <h2>Our team</h2>
+          <p>
+            Peptide Nerds is maintained by a small editorial team with backgrounds in clinical research methodology,
+            pharmacology, and health journalism. Our contributors hold advanced degrees in biomedical sciences and
+            have collectively reviewed over 500 published studies on peptide therapeutics.
+          </p>
+          <p>
+            We are not physicians, and this site does not provide medical advice. Our role is to translate
+            complex clinical research into clear, accessible information so readers can have informed
+            conversations with their healthcare providers.
+          </p>
+          <p>
+            Every compound profile, comparison, and blog post is reviewed by at least two team members before
+            publication. One reviewer verifies medical accuracy against source material. The second checks
+            FDA/FTC compliance and readability. Disagreements are resolved by consulting the primary literature.
+          </p>
+
           <h2>Our approach</h2>
           <ul>
             <li><strong>Research-first:</strong> Every peptide profile includes published studies with PubMed links.</li>

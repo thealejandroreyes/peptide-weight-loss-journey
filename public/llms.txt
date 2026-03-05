@@ -1,6 +1,9 @@
 # Peptide Nerds
 > Research-backed peptide education for weight loss, healing, and optimization. 44 compound profiles, side-by-side comparisons, dosage calculators, and weekly research updates.
 
+Last updated: 2026-03-04
+Contact: https://peptidenerds.com/contact
+
 ## Compound Database — GLP-1 / Weight Loss
 - [Semaglutide](https://peptidenerds.com/peptides/semaglutide): GLP-1 receptor agonist FDA-approved for weight loss (Ozempic/Wegovy)
 - [Tirzepatide](https://peptidenerds.com/peptides/tirzepatide): Dual GIP/GLP-1 agonist FDA-approved for weight loss (Mounjaro/Zepbound)
@@ -84,7 +87,7 @@
 
 ## Guides
 - [Start Here](https://peptidenerds.com/start-here): Beginner's guide to peptides
-- [About](https://peptidenerds.com/about): About Fat Man in the Arena
+- [About](https://peptidenerds.com/about): About Peptide Nerds
 - [Editorial Policy](https://peptidenerds.com/editorial-policy): Our research and editorial standards
 
 ## Blog

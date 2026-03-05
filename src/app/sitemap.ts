@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/disclaimer`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/editorial-policy`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/affiliate-disclosure`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/privacy-policy`, lastModified: TRUST_PAGES_DATE, changeFrequency: 'yearly', priority: 0.3 },
   ]
 
   // Peptide pages (main + sub-pages)
