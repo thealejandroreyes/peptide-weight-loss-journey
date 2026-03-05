@@ -15,6 +15,7 @@ import { AuthorBio } from '@/components/AuthorBio'
 import { InlineContentCTA } from '@/components/InlineContentCTA'
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
 import { MedicalWebPageSchema, FAQSchema, BreadcrumbSchema } from '@/components/SchemaMarkup'
+import { TitrationCalendar } from '@/components/TitrationCalendar'
 
 export function generateStaticParams() {
   return getAllComparisonSlugs().map((slug) => ({ slug }))
@@ -55,6 +56,14 @@ export default async function ComparisonDetailPage({ params }: { params: Promise
   }
   if (comparison.faqs.length > 0) {
     tocItems.push({ id: 'faq', title: 'Frequently Asked Questions' })
+  }
+  const showTitrationCalendar = comparison.category === 'glp1-weight-loss' && (
+    [comparison.peptideA, comparison.peptideB, comparison.peptideC].some(p =>
+      p && ['semaglutide', 'tirzepatide', 'retatrutide'].includes(p)
+    )
+  )
+  if (showTitrationCalendar) {
+    tocItems.push({ id: 'titration-calendar', title: 'Titration Calendar' })
   }
   if (comparison.citations.length > 0) {
     tocItems.push({ id: 'references', title: 'References' })
@@ -145,6 +154,13 @@ export default async function ComparisonDetailPage({ params }: { params: Promise
                 <div className="mt-4">
                   <FAQAccordion faqs={comparison.faqs} />
                 </div>
+              </div>
+            )}
+
+            {/* Titration Calendar */}
+            {showTitrationCalendar && (
+              <div className="mt-10">
+                <TitrationCalendar />
               </div>
             )}
 

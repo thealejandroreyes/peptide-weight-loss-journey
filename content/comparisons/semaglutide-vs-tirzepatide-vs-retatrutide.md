@@ -44,6 +44,105 @@ Tirzepatide's SURPASS-CVOT trial is underway but results are not expected for se
 
 **Important caveats.** No head-to-head trial has compared all three medications directly. Cross-trial comparisons (different populations, different endpoints, different timeframes) are inherently imperfect. Retatrutide data comes from a single Phase 2 trial with 338 participants -- orders of magnitude smaller than the STEP and SURMOUNT programs. Phase 3 results could confirm, narrow, or even reverse the preliminary findings. These numbers are population averages. Individual responses vary based on genetics, baseline metabolic health, diet, exercise, starting weight, and adherence.
 
+## Dosing and Titration: Side by Side
+
+All three medications follow the same basic principle: start low, go slow. Titration exists to give your body time to adjust. Rushing it does not speed up weight loss. It just makes you nauseous.
+
+**Semaglutide titration schedule (Wegovy):**
+
+| Weeks | Dose | Notes |
+|-------|------|-------|
+| 1-4 | 0.25 mg | Starting dose. Minimal weight loss expected. |
+| 5-8 | 0.5 mg | Most patients begin noticing appetite changes. |
+| 9-12 | 1.0 mg | Significant appetite suppression for most. |
+| 13-16 | 1.7 mg | Approaching therapeutic range. |
+| 17+ | 2.4 mg | Full maintenance dose. This is where trial results were measured. |
+
+Total titration: 16 weeks to reach full dose. Most weight loss occurs after reaching 1.0 mg or higher.
+
+**Tirzepatide titration schedule (Zepbound):**
+
+| Weeks | Dose | Notes |
+|-------|------|-------|
+| 1-4 | 2.5 mg | Starting dose. GI adjustment period. |
+| 5-8 | 5.0 mg | First therapeutic dose level. |
+| 9-12 | 7.5 mg | Optional intermediate step. |
+| 13-16 | 10.0 mg | Strong efficacy for most patients. |
+| 17-20 | 12.5 mg | Optional intermediate step. |
+| 21+ | 15.0 mg | Maximum dose. Highest weight loss in trials. |
+
+Total titration: 20 weeks to reach maximum dose. Many patients see substantial results at 10 mg and do not need to go to 15 mg.
+
+**Retatrutide titration schedule (Phase 2 trial protocol):**
+
+| Weeks | Dose | Notes |
+|-------|------|-------|
+| 1-4 | 1.0 mg | Starting dose. |
+| 5-8 | 2.0 mg | First escalation. |
+| 9-12 | 4.0 mg | Moderate dose. |
+| 13-16 | 8.0 mg | Approaching maximum. |
+| 17+ | 12.0 mg | Highest dose tested in Phase 2. |
+
+Total titration: 16 weeks. Note: this was the Phase 2 protocol. Phase 3 trials may use a different schedule, and there is no FDA-approved label yet.
+
+**Key differences in dosing approach.** Semaglutide uses small, incremental steps. Tirzepatide uses larger jumps with optional intermediate doses. Retatrutide (in Phase 2) used a faster escalation with larger dose doublings. The common thread: four-week intervals between increases. If you tolerate a dose well for four weeks, you move up. If side effects are significant, you stay at the current dose until they resolve.
+
+**Injection day consistency matters.** All three are once-weekly. Pick the same day each week. It does not matter which day. What matters is consistency. If you miss a dose by a day or two, take it when you remember and resume your regular schedule. If you miss by more than two days, most guidelines recommend skipping that week and resuming on schedule. Your prescriber may have specific instructions.
+
+## Switching Between Medications
+
+Switching between semaglutide and tirzepatide is increasingly common. Reasons include: inadequate weight loss response on one, insurance coverage changes, side effect intolerance, or a desire for greater efficacy. Switching to or from retatrutide is not a standard clinical scenario since it is not FDA-approved.
+
+**Semaglutide to tirzepatide.** This is the most common switch direction. The standard protocol is to start tirzepatide at 2.5 mg regardless of what semaglutide dose you were on. There is no validated dose-conversion formula. Restarting at the lowest dose minimizes GI side effects during the transition and accounts for the fact that tirzepatide acts on a different receptor profile. Most clinicians recommend stopping semaglutide and starting tirzepatide the following week (on your normal injection day). No washout period is necessary.
+
+**Tirzepatide to semaglutide.** Less common (since tirzepatide typically produces more weight loss), but it happens. Some patients switch due to insurance changes, cost, or personal preference. Same principle: start semaglutide at 0.25 mg and follow standard titration. Again, no washout needed.
+
+**What to expect when switching.** The first 4-8 weeks after a switch can feel like starting over. GI side effects may return during retitration. Weight loss may temporarily stall or slow while your body adjusts to the new medication. This is normal and expected. By weeks 8-12 on the new medication, most patients are back on a weight loss trajectory.
+
+**When switching makes sense.** Consider a switch if: you have been at maximum dose for 12+ weeks with less than expected results, your side effects remain problematic despite proper titration, or your access/insurance situation changes. Do not switch just because weight loss has slowed. Weight loss naturally decelerates as you lose more weight. A plateau at month 8 is different from poor response at month 3. Discuss timing with your prescriber.
+
+## Timeline to Results
+
+One of the most common questions: "How fast will I lose weight?" Here is what the clinical data and real-world experience show for each medication.
+
+**First 4 weeks (all three).** Do not expect much. The starting doses are subtherapeutic. They exist for GI adjustment, not weight loss. Some patients notice mild appetite changes. Others feel nothing. Weight loss during month one is typically 1-3% of body weight, mostly from reduced food intake as appetite shifts.
+
+**Weeks 4-12.** This is where the medications start working. As doses escalate, appetite suppression increases noticeably. Most patients on semaglutide report a clear shift around the 1.0 mg dose (weeks 9-12). Tirzepatide patients often notice it at 5.0 mg (weeks 5-8). Weight loss accelerates to roughly 1-2% of body weight per month.
+
+**Weeks 12-24.** Peak weight loss velocity for all three. This is the steepest part of the curve. Monthly weight loss of 2-4% of body weight is common once maintenance doses are reached. Food noise is typically at its lowest. Patients describe this as the "honeymoon period."
+
+**Weeks 24-48.** Weight loss continues but decelerates. This is not a plateau. It is the expected mathematical pattern. As you lose weight, your caloric needs decrease, and the medication has less excess weight to act on. Monthly losses may slow to 0.5-1% of body weight. This phase can feel discouraging, but it is normal.
+
+**Beyond 48 weeks.** Weight loss curves for semaglutide and tirzepatide generally flatten between months 12-15. The STEP 5 trial showed weight was maintained at approximately 15% loss through 104 weeks of continuous treatment. Tirzepatide's SURMOUNT-4 extension data showed similar maintenance. Retatrutide's 48-week data had not yet plateaued, suggesting its peak effect may extend further. But the pattern will eventually be the same: weight loss, followed by weight stability at a lower setpoint.
+
+**Individual variation is significant.** These are averages. Some people lose 30%+ of their body weight. Others lose 5-8% and stall. Genetics, metabolic health, diet quality, exercise habits, sleep, stress, and medication adherence all influence outcomes. If your results do not match the averages, that does not mean the medication is not working. It means your body is responding on its own curve.
+
+## What Happens When You Stop
+
+This is the question most people avoid. The answer is direct: if you stop any of these medications, you will regain a significant portion of the weight you lost. This is not a flaw in the medications. It is the biology of obesity.
+
+**The STEP 1 extension data.** After the 68-week STEP 1 trial, participants who stopped semaglutide regained approximately two-thirds of their lost weight within one year. Patients who lost 15% regained roughly 10% over the following 52 weeks. The appetite suppression, reduced food noise, and metabolic changes reverse when the medication is removed.
+
+**The SURMOUNT-4 withdrawal data.** SURMOUNT-4 specifically studied what happens when tirzepatide is discontinued. After 36 weeks of treatment, patients who switched to placebo regained approximately 14% of their body weight over the next 52 weeks, versus continued loss in those who stayed on the drug. The message was clear: stopping treatment reverses a large portion of the benefit.
+
+**Why this happens.** Obesity involves changes in appetite-regulating hormones, metabolic rate, and brain signaling that persist even after weight loss. When you lose weight through any method (medication, surgery, diet), your body increases hunger hormones (ghrelin), decreases satiety hormones (leptin), and lowers metabolic rate in an attempt to return to its previous weight. GLP-1 medications suppress these compensatory mechanisms. Remove the medication, and the mechanisms reassert themselves.
+
+**What this means practically.** These medications are designed for long-term, potentially lifelong use. They are treatments for a chronic condition, similar to blood pressure medication or statins. Stopping them "once you reach your goal weight" is like stopping blood pressure medication because your numbers improved. The numbers improved because of the medication.
+
+**Some patients do maintain weight off-medication.** A minority of patients who combine medication with significant lifestyle changes (regular exercise, dietary habits, behavioral therapy) maintain some or most of their weight loss after stopping. But this is the exception, not the rule. If you are considering stopping, discuss a structured plan with your physician rather than simply discontinuing.
+
+## The Liver Fat Question
+
+Retatrutide's liver fat reduction deserves separate attention because it represents a genuinely different clinical benefit from the other two.
+
+Nonalcoholic fatty liver disease (NAFLD, now called MASLD) and its more severe form MASH (formerly NASH) affect an estimated 30% of the global population. MASH can progress to cirrhosis and liver failure. There are very few effective treatments. Weight loss helps, but the amount needed (typically 7-10% of body weight) is difficult for most patients to achieve and maintain.
+
+In the retatrutide Phase 2 trial, mean liver fat content decreased by approximately 81% from baseline at the 12 mg dose. The majority of participants with elevated liver fat at baseline achieved normal liver fat levels by week 48. For context: semaglutide reduces liver fat by approximately 30-40% in studies, and tirzepatide by approximately 35-55%. Retatrutide's effect is roughly double.
+
+This is attributed to the glucagon receptor component. Glucagon directly promotes hepatic fat oxidation (the liver burning its own fat stores) and inhibits de novo lipogenesis (the liver making new fat). This is a mechanism that semaglutide and tirzepatide simply do not have.
+
+If you have been diagnosed with fatty liver disease, MASLD, or MASH, this distinction matters. It does not make retatrutide "better" in general. But for this specific condition, the triple agonist mechanism has a theoretical and early empirical advantage that neither single nor dual agonists match.
+
 ## Side Effects and Tolerability
 
 The side effect profiles of all three medications overlap substantially. Gastrointestinal symptoms dominate, particularly during dose titration. The pattern is similar across all three: most side effects are mild to moderate, peak during dose escalation, and improve with continued use.
