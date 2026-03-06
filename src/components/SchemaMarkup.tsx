@@ -91,7 +91,9 @@ export function OrganizationSchema() {
     '@type': 'Organization',
     name: 'Peptide Nerds',
     url: 'https://peptidenerds.com',
-    sameAs: [],
+    sameAs: [
+      'https://www.instagram.com/fatmaninthearena',
+    ],
     description:
       'Evidence-based peptide education. Real research, real experience, no hype.',
   }

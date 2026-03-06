@@ -34,6 +34,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Peptide Nerds',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Peptide Nerds — Evidence-Based Peptide Guide',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
