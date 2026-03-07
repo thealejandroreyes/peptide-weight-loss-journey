@@ -4,9 +4,7 @@ import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { DisclaimerBanner } from '@/components/DisclaimerBanner'
-import { StickyBottomBar } from '@/components/StickyBottomBar'
-import { ExitIntentPopup } from '@/components/ExitIntentPopup'
+import { LazyOverlays } from '@/components/LazyOverlays'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -71,11 +69,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${cormorant.variable} antialiased bg-background text-foreground`}>
         <Header />
-        <DisclaimerBanner />
+        <LazyOverlays />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <StickyBottomBar />
-        <ExitIntentPopup />
         <Analytics />
       </body>
     </html>

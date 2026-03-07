@@ -5,10 +5,9 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import {
-  NavDropdown,
-  MobileNavAccordion,
+  CSSNavDropdown,
   type NavDropdownSection,
-} from './NavDropdown'
+} from './CSSNavDropdown'
 
 // ---------------------------------------------------------------------------
 // Navigation data
@@ -129,7 +128,7 @@ const toolsSections: NavDropdownSection[] = [
 ]
 
 // ---------------------------------------------------------------------------
-// Helper — check if current path is within a nav section
+// Helper
 // ---------------------------------------------------------------------------
 function isPathActive(pathname: string, prefixes: string[]): boolean {
   return prefixes.some((p) => pathname === p || pathname.startsWith(p + '/'))
@@ -142,7 +141,6 @@ function isPathActive(pathname: string, prefixes: string[]): boolean {
 export function Header() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const closeMobile = () => setMobileOpen(false)
 
   const weightLossActive = isPathActive(pathname, ['/goals/weight-loss', '/goals/fat-loss', '/peptides-weight-loss-guide', '/compare', '/stacks'])
   const peptidesActive = isPathActive(pathname, ['/peptides', '/glp-1-peptides'])
@@ -164,7 +162,6 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-5 lg:flex">
-          {/* Start Here */}
           <Link
             href="/start-here"
             className={cn(
@@ -175,47 +172,41 @@ export function Header() {
             Start Here
           </Link>
 
-          {/* Weight Loss */}
-          <NavDropdown
+          <CSSNavDropdown
             label="Weight Loss"
             sections={weightLossSections}
             footerLink={{ label: 'View all comparisons →', href: '/compare' }}
             isActive={weightLossActive}
           />
 
-          {/* Peptides */}
-          <NavDropdown
+          <CSSNavDropdown
             label="Peptides"
             sections={peptideSections}
             footerLink={{ label: 'Browse all 44 peptides →', href: '/peptides' }}
             isActive={peptidesActive}
           />
 
-          {/* Goals */}
-          <NavDropdown
+          <CSSNavDropdown
             label="Goals"
             sections={goalsSections}
             footerLink={{ label: 'View all goals →', href: '/goals' }}
             isActive={goalsActive}
           />
 
-          {/* How-To */}
-          <NavDropdown
+          <CSSNavDropdown
             label="How-To"
             sections={howToSections}
             footerLink={{ label: 'View all how-to guides →', href: '/blog?pillar=peptide-how-to' }}
             isActive={howToActive}
           />
 
-          {/* Tools */}
-          <NavDropdown
+          <CSSNavDropdown
             label="Tools"
             sections={toolsSections}
             footerLink={{ label: 'View all tools →', href: '/tools' }}
             isActive={toolsActive}
           />
 
-          {/* Blog */}
           <Link
             href="/blog"
             className={cn(
@@ -245,79 +236,188 @@ export function Header() {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <nav className="border-t border-white/10 bg-primary px-4 py-2 lg:hidden">
-          {/* Start Here */}
-          <Link
-            href="/start-here"
-            onClick={closeMobile}
-            className={cn(
-              'block border-b border-white/10 py-3 text-sm transition-colors',
-              startHereActive ? 'text-cta' : 'text-white/75 hover:text-white'
-            )}
-          >
-            Start Here
-          </Link>
-
-          {/* Weight Loss */}
-          <MobileNavAccordion
-            label="Weight Loss"
-            sections={weightLossSections}
-            footerLink={{ label: 'View all comparisons →', href: '/compare' }}
-            isActive={weightLossActive}
-            defaultOpen
-            onLinkClick={closeMobile}
-          />
-
-          {/* Peptides */}
-          <MobileNavAccordion
-            label="Peptides"
-            sections={peptideSections}
-            footerLink={{ label: 'Browse all 44 peptides →', href: '/peptides' }}
-            isActive={peptidesActive}
-            defaultOpen
-            onLinkClick={closeMobile}
-          />
-
-          {/* Goals */}
-          <MobileNavAccordion
-            label="Goals"
-            sections={goalsSections}
-            footerLink={{ label: 'View all goals →', href: '/goals' }}
-            isActive={goalsActive}
-            onLinkClick={closeMobile}
-          />
-
-          {/* How-To */}
-          <MobileNavAccordion
-            label="How-To"
-            sections={howToSections}
-            footerLink={{ label: 'View all how-to guides →', href: '/blog?pillar=peptide-how-to' }}
-            isActive={howToActive}
-            onLinkClick={closeMobile}
-          />
-
-          {/* Tools */}
-          <MobileNavAccordion
-            label="Tools"
-            sections={toolsSections}
-            footerLink={{ label: 'View all tools →', href: '/tools' }}
-            isActive={toolsActive}
-            onLinkClick={closeMobile}
-          />
-
-          {/* Blog */}
-          <Link
-            href="/blog"
-            onClick={closeMobile}
-            className={cn(
-              'block py-3 text-sm transition-colors',
-              blogActive ? 'text-cta' : 'text-white/75 hover:text-white'
-            )}
-          >
-            Blog
-          </Link>
-        </nav>
+        <MobileNav
+          pathname={pathname}
+          weightLossActive={weightLossActive}
+          peptidesActive={peptidesActive}
+          goalsActive={goalsActive}
+          howToActive={howToActive}
+          toolsActive={toolsActive}
+          blogActive={blogActive}
+          startHereActive={startHereActive}
+          onClose={() => setMobileOpen(false)}
+        />
       )}
     </header>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Mobile nav (only rendered when menu is open)
+// ---------------------------------------------------------------------------
+
+function MobileAccordion({
+  label,
+  sections,
+  footerLink,
+  isActive,
+  defaultOpen = false,
+  onLinkClick,
+}: {
+  label: string
+  sections: NavDropdownSection[]
+  footerLink?: { label: string; href: string }
+  isActive?: boolean
+  defaultOpen?: boolean
+  onLinkClick: () => void
+}) {
+  const [expanded, setExpanded] = useState(defaultOpen)
+
+  return (
+    <div className="border-b border-white/10 last:border-b-0">
+      <button
+        className={cn(
+          'flex w-full items-center justify-between py-3 text-sm transition-colors',
+          isActive ? 'text-cta' : 'text-white/75'
+        )}
+        onClick={() => setExpanded(!expanded)}
+        aria-expanded={expanded}
+      >
+        {label}
+        <svg
+          className={cn('h-4 w-4 transition-transform', expanded && 'rotate-180')}
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </button>
+
+      {expanded && (
+        <div className="pb-3 pl-3">
+          {sections.map((section) => (
+            <div key={section.title} className="mb-3 last:mb-0">
+              <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/40">
+                {section.title}
+              </p>
+              <ul className="space-y-0.5">
+                {section.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="block rounded-lg py-1.5 pl-2 text-sm text-white/60 transition-colors hover:text-white"
+                      onClick={onLinkClick}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {footerLink && (
+            <Link
+              href={footerLink.href}
+              className="mt-1 block pl-2 text-xs text-sage transition-colors hover:text-white"
+              onClick={onLinkClick}
+            >
+              {footerLink.label}
+            </Link>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function MobileNav({
+  pathname,
+  weightLossActive,
+  peptidesActive,
+  goalsActive,
+  howToActive,
+  toolsActive,
+  blogActive,
+  startHereActive,
+  onClose,
+}: {
+  pathname: string
+  weightLossActive: boolean
+  peptidesActive: boolean
+  goalsActive: boolean
+  howToActive: boolean
+  toolsActive: boolean
+  blogActive: boolean
+  startHereActive: boolean
+  onClose: () => void
+}) {
+  return (
+    <nav className="border-t border-white/10 bg-primary px-4 py-2 lg:hidden">
+      <Link
+        href="/start-here"
+        onClick={onClose}
+        className={cn(
+          'block border-b border-white/10 py-3 text-sm transition-colors',
+          startHereActive ? 'text-cta' : 'text-white/75 hover:text-white'
+        )}
+      >
+        Start Here
+      </Link>
+
+      <MobileAccordion
+        label="Weight Loss"
+        sections={weightLossSections}
+        footerLink={{ label: 'View all comparisons →', href: '/compare' }}
+        isActive={weightLossActive}
+        defaultOpen
+        onLinkClick={onClose}
+      />
+
+      <MobileAccordion
+        label="Peptides"
+        sections={peptideSections}
+        footerLink={{ label: 'Browse all 44 peptides →', href: '/peptides' }}
+        isActive={peptidesActive}
+        defaultOpen
+        onLinkClick={onClose}
+      />
+
+      <MobileAccordion
+        label="Goals"
+        sections={goalsSections}
+        footerLink={{ label: 'View all goals →', href: '/goals' }}
+        isActive={goalsActive}
+        onLinkClick={onClose}
+      />
+
+      <MobileAccordion
+        label="How-To"
+        sections={howToSections}
+        footerLink={{ label: 'View all how-to guides →', href: '/blog?pillar=peptide-how-to' }}
+        isActive={howToActive}
+        onLinkClick={onClose}
+      />
+
+      <MobileAccordion
+        label="Tools"
+        sections={toolsSections}
+        footerLink={{ label: 'View all tools →', href: '/tools' }}
+        isActive={toolsActive}
+        onLinkClick={onClose}
+      />
+
+      <Link
+        href="/blog"
+        onClick={onClose}
+        className={cn(
+          'block py-3 text-sm transition-colors',
+          blogActive ? 'text-cta' : 'text-white/75 hover:text-white'
+        )}
+      >
+        Blog
+      </Link>
+    </nav>
   )
 }
