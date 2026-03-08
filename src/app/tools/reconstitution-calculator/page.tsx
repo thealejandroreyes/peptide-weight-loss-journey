@@ -2,6 +2,8 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { ReconstitutionCalculatorClient } from './reconstitution-calculator-client'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
+import { ToolSchema } from '@/components/ToolSchema'
+import { ToolRating } from '@/components/ToolRating'
 
 export const metadata: Metadata = {
   title: 'Peptide Reconstitution Calculator — Free Tool',
@@ -14,31 +16,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ReconstitutionCalculatorPage() {
+export default async function ReconstitutionCalculatorPage() {
   return (
     <>
       <Suspense>
         <ReconstitutionCalculatorClient />
       </Suspense>
+      <ToolRating toolSlug="reconstitution-calculator" />
       <BreadcrumbSchema items={[
         { name: 'Home', url: '/' },
         { name: 'Tools', url: '/tools' },
         { name: 'Reconstitution Calculator', url: '/tools/reconstitution-calculator' },
       ]} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Peptide Reconstitution Calculator',
-            url: 'https://peptidenerds.com/tools/reconstitution-calculator',
-            applicationCategory: 'HealthApplication',
-            operatingSystem: 'Any',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            description: 'Calculate exact BAC water volumes and syringe units for any peptide reconstitution.',
-          }),
-        }}
+      <ToolSchema
+        name="Peptide Reconstitution Calculator"
+        slug="reconstitution-calculator"
+        url="/tools/reconstitution-calculator"
+        description="Calculate exact BAC water volumes and syringe units for any peptide reconstitution."
       />
     </>
   )

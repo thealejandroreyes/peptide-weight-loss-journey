@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { flags } from '@/lib/feature-flags'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
+import { ToolSchema } from '@/components/ToolSchema'
+import { ToolRating } from '@/components/ToolRating'
 import { PlotterClient } from './plotter-client'
 
 export const metadata: Metadata = {
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BloodLevelPlotterPage() {
+export default async function BloodLevelPlotterPage() {
   if (!flags.proEnabled) {
     notFound()
   }
@@ -63,6 +65,8 @@ export default function BloodLevelPlotterPage() {
             medication.
           </p>
         </div>
+
+        <ToolRating toolSlug="blood-level-plotter" />
       </div>
 
       <BreadcrumbSchema
@@ -72,21 +76,11 @@ export default function BloodLevelPlotterPage() {
           { name: 'Blood Level Plotter', url: '/tools/blood-level-plotter' },
         ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'GLP-1 Blood Level Plotter',
-            url: 'https://peptidenerds.com/tools/blood-level-plotter',
-            applicationCategory: 'HealthApplication',
-            operatingSystem: 'Any',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            description:
-              'Visualize GLP-1 drug concentration over time. Model titration schedules for semaglutide, tirzepatide, and retatrutide with pharmacokinetic curves.',
-          }),
-        }}
+      <ToolSchema
+        name="GLP-1 Blood Level Plotter"
+        slug="blood-level-plotter"
+        url="/tools/blood-level-plotter"
+        description="Visualize GLP-1 drug concentration over time. Model titration schedules for semaglutide, tirzepatide, and retatrutide with pharmacokinetic curves."
       />
     </>
   )

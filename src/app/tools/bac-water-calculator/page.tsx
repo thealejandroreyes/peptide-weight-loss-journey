@@ -2,6 +2,8 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { BacWaterCalculatorClient } from './bac-water-calculator-client'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
+import { ToolSchema } from '@/components/ToolSchema'
+import { ToolRating } from '@/components/ToolRating'
 
 export const metadata: Metadata = {
   title: 'BAC Water Calculator — Free Tool',
@@ -14,31 +16,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BacWaterCalculatorPage() {
+export default async function BacWaterCalculatorPage() {
   return (
     <>
       <Suspense>
         <BacWaterCalculatorClient />
       </Suspense>
+      <ToolRating toolSlug="bac-water-calculator" />
       <BreadcrumbSchema items={[
         { name: 'Home', url: '/' },
         { name: 'Tools', url: '/tools' },
         { name: 'BAC Water Calculator', url: '/tools/bac-water-calculator' },
       ]} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'BAC Water Calculator',
-            url: 'https://peptidenerds.com/tools/bac-water-calculator',
-            applicationCategory: 'HealthApplication',
-            operatingSystem: 'Any',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            description: 'Calculate how much bacteriostatic water you need for peptide reconstitution.',
-          }),
-        }}
+      <ToolSchema
+        name="BAC Water Calculator"
+        slug="bac-water-calculator"
+        url="/tools/bac-water-calculator"
+        description="Calculate how much bacteriostatic water you need for peptide reconstitution."
       />
     </>
   )

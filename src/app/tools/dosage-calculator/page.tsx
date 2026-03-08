@@ -2,6 +2,8 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { DosageCalculatorClient } from './dosage-calculator-client'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
+import { ToolSchema } from '@/components/ToolSchema'
+import { ToolRating } from '@/components/ToolRating'
 
 export const metadata: Metadata = {
   title: 'Peptide Dosage Calculator — Free Tool',
@@ -14,31 +16,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function DosageCalculatorPage() {
+export default async function DosageCalculatorPage() {
   return (
     <>
       <Suspense>
         <DosageCalculatorClient />
       </Suspense>
+      <ToolRating toolSlug="dosage-calculator" />
       <BreadcrumbSchema items={[
         { name: 'Home', url: '/' },
         { name: 'Tools', url: '/tools' },
         { name: 'Dosage Calculator', url: '/tools/dosage-calculator' },
       ]} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Peptide Dosage Calculator',
-            url: 'https://peptidenerds.com/tools/dosage-calculator',
-            applicationCategory: 'HealthApplication',
-            operatingSystem: 'Any',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            description: 'Free peptide dosage calculator. Enter vial size and water volume to get exact syringe measurements for any peptide dose.',
-          }),
-        }}
+      <ToolSchema
+        name="Peptide Dosage Calculator"
+        slug="dosage-calculator"
+        url="/tools/dosage-calculator"
+        description="Free peptide dosage calculator. Enter vial size and water volume to get exact syringe measurements for any peptide dose."
       />
     </>
   )

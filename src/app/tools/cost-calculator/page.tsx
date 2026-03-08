@@ -2,6 +2,8 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
+import { ToolSchema } from '@/components/ToolSchema'
+import { ToolRating } from '@/components/ToolRating'
 import { CostCalculatorClient } from './cost-calculator-client'
 
 export const metadata: Metadata = {
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function CostCalculatorPage() {
+export default async function CostCalculatorPage() {
   return (
     <>
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
@@ -45,6 +47,8 @@ export default function CostCalculatorPage() {
             This tool is for educational purposes and does not constitute financial or medical advice.
           </p>
         </div>
+
+        <ToolRating toolSlug="cost-calculator" />
       </div>
 
       <BreadcrumbSchema items={[
@@ -52,20 +56,11 @@ export default function CostCalculatorPage() {
         { name: 'Tools', url: '/tools' },
         { name: 'Cost Calculator', url: '/tools/cost-calculator' },
       ]} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: 'Peptide Cost Calculator',
-            url: 'https://peptidenerds.com/tools/cost-calculator',
-            applicationCategory: 'HealthApplication',
-            operatingSystem: 'Any',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            description: 'Estimate monthly peptide costs. Compare compounded pharmacy vs brand name pricing for 18+ peptides.',
-          }),
-        }}
+      <ToolSchema
+        name="Peptide Cost Calculator"
+        slug="cost-calculator"
+        url="/tools/cost-calculator"
+        description="Estimate monthly peptide costs. Compare compounded pharmacy vs brand name pricing for 18+ peptides."
       />
     </>
   )
