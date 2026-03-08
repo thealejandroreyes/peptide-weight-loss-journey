@@ -14,7 +14,7 @@ import { FAQAccordion } from '@/components/FAQAccordion'
 import { AuthorBio } from '@/components/AuthorBio'
 import { InlineContentCTA } from '@/components/InlineContentCTA'
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
-import { MedicalWebPageSchema, FAQSchema, BreadcrumbSchema } from '@/components/SchemaMarkup'
+import { ArticleSchema, FAQSchema, BreadcrumbSchema } from '@/components/SchemaMarkup'
 import { TitrationCalendar } from '@/components/TitrationCalendar'
 
 export function generateStaticParams() {
@@ -78,10 +78,11 @@ export default async function ComparisonDetailPage({ params }: { params: Promise
 
   return (
     <>
-      <MedicalWebPageSchema
+      <ArticleSchema
         title={comparison.title}
         description={comparison.metaDescription}
-        url={`/compare/${comparison.slug}`}
+        url={`https://peptidenerds.com/compare/${comparison.slug}`}
+        dateModified={comparison.lastUpdated}
       />
       {comparison.faqs.length > 0 && <FAQSchema faqs={comparison.faqs} />}
       <BreadcrumbSchema
