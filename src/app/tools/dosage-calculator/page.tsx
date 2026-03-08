@@ -22,7 +22,9 @@ export default async function DosageCalculatorPage() {
       <Suspense>
         <DosageCalculatorClient />
       </Suspense>
-      <ToolRating toolSlug="dosage-calculator" />
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <ToolRating toolSlug="dosage-calculator" />
+      </div>
       <BreadcrumbSchema items={[
         { name: 'Home', url: '/' },
         { name: 'Tools', url: '/tools' },

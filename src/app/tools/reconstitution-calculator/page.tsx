@@ -22,7 +22,9 @@ export default async function ReconstitutionCalculatorPage() {
       <Suspense>
         <ReconstitutionCalculatorClient />
       </Suspense>
-      <ToolRating toolSlug="reconstitution-calculator" />
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <ToolRating toolSlug="reconstitution-calculator" />
+      </div>
       <BreadcrumbSchema items={[
         { name: 'Home', url: '/' },
         { name: 'Tools', url: '/tools' },

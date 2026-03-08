@@ -22,7 +22,9 @@ export default async function BacWaterCalculatorPage() {
       <Suspense>
         <BacWaterCalculatorClient />
       </Suspense>
-      <ToolRating toolSlug="bac-water-calculator" />
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <ToolRating toolSlug="bac-water-calculator" />
+      </div>
       <BreadcrumbSchema items={[
         { name: 'Home', url: '/' },
         { name: 'Tools', url: '/tools' },
