@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { BacWaterCalculatorClient } from './bac-water-calculator-client'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
 import { ToolSchema } from '@/components/ToolSchema'
-import { ToolRating } from '@/components/ToolRating'
 
 export const metadata: Metadata = {
   title: 'BAC Water Calculator — Free Tool',
@@ -16,15 +15,12 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function BacWaterCalculatorPage() {
+export default function BacWaterCalculatorPage() {
   return (
     <>
       <Suspense>
         <BacWaterCalculatorClient />
       </Suspense>
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <ToolRating toolSlug="bac-water-calculator" />
-      </div>
       <BreadcrumbSchema items={[
         { name: 'Home', url: '/' },
         { name: 'Tools', url: '/tools' },
@@ -32,7 +28,6 @@ export default async function BacWaterCalculatorPage() {
       ]} />
       <ToolSchema
         name="BAC Water Calculator"
-        slug="bac-water-calculator"
         url="/tools/bac-water-calculator"
         description="Calculate how much bacteriostatic water you need for peptide reconstitution."
       />

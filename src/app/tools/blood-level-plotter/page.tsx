@@ -5,7 +5,6 @@ import { flags } from '@/lib/feature-flags'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
 import { ToolSchema } from '@/components/ToolSchema'
-import { ToolRating } from '@/components/ToolRating'
 import { PlotterClient } from './plotter-client'
 
 export const metadata: Metadata = {
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function BloodLevelPlotterPage() {
+export default function BloodLevelPlotterPage() {
   if (!flags.proEnabled) {
     notFound()
   }
@@ -66,7 +65,6 @@ export default async function BloodLevelPlotterPage() {
           </p>
         </div>
 
-        <ToolRating toolSlug="blood-level-plotter" />
       </div>
 
       <BreadcrumbSchema
@@ -78,7 +76,6 @@ export default async function BloodLevelPlotterPage() {
       />
       <ToolSchema
         name="GLP-1 Blood Level Plotter"
-        slug="blood-level-plotter"
         url="/tools/blood-level-plotter"
         description="Visualize GLP-1 drug concentration over time. Model titration schedules for semaglutide, tirzepatide, and retatrutide with pharmacokinetic curves."
       />

@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
 import { ToolSchema } from '@/components/ToolSchema'
-import { ToolRating } from '@/components/ToolRating'
 import { CostCalculatorClient } from './cost-calculator-client'
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function CostCalculatorPage() {
+export default function CostCalculatorPage() {
   return (
     <>
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
@@ -48,7 +47,6 @@ export default async function CostCalculatorPage() {
           </p>
         </div>
 
-        <ToolRating toolSlug="cost-calculator" />
       </div>
 
       <BreadcrumbSchema items={[
@@ -58,7 +56,6 @@ export default async function CostCalculatorPage() {
       ]} />
       <ToolSchema
         name="Peptide Cost Calculator"
-        slug="cost-calculator"
         url="/tools/cost-calculator"
         description="Estimate monthly peptide costs. Compare compounded pharmacy vs brand name pricing for 18+ peptides."
       />

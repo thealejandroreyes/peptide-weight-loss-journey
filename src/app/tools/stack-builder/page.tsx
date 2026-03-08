@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { BreadcrumbSchema } from '@/components/SchemaMarkup'
 import { ToolSchema } from '@/components/ToolSchema'
-import { ToolRating } from '@/components/ToolRating'
 import { StackBuilderClient } from './stack-builder-client'
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function StackBuilderPage() {
+export default function StackBuilderPage() {
   return (
     <>
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
@@ -46,7 +45,6 @@ export default async function StackBuilderPage() {
           </p>
         </div>
 
-        <ToolRating toolSlug="stack-builder" />
       </div>
 
       <BreadcrumbSchema items={[
@@ -56,7 +54,6 @@ export default async function StackBuilderPage() {
       ]} />
       <ToolSchema
         name="Peptide Stack Builder"
-        slug="stack-builder"
         url="/tools/stack-builder"
         description="Build a custom peptide stack based on your goals and experience level. 12 pre-built evidence-based protocols."
       />
